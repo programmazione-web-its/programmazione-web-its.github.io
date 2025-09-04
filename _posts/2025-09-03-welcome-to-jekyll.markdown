@@ -6,26 +6,80 @@ categories: react javascript
 excerpt: 'Che cosa è React e perché usarlo'
 ---
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+# Che cos'è React?
 
-Jekyll requires blog post files to be named according to the following format:
+<img class="img-full-width" src="/assets/images/01.png" alt="React Logo" />
 
-`YEAR-MONTH-DAY-title.MARKUP`
+React è una libreria Javascript per creare interfacce utente.<br/>
+È stata sviluppata da Facebook (ora Meta) e viene utilizzata per creare applicazioni web di diversa complessità e altamente interattive, in modo efficiente e scalabile.
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+# Perché si usa?
 
-Jekyll also offers powerful support for code snippets:
+React si usa perché permette di creare **applicazioni web veloci, fluide e interattive**, che danno all’utente un’esperienza simile a quella di un’app mobile.<br/>
 
-{% highlight ruby %}
-def print_hi(name)
-puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+Quando navighiamo su siti sviluppati con React (come Netflix), i **passaggi** tra le varie sezioni avvengono in modo istantaneo, **senza dover ricaricare** l’intera pagina dal server. Questo è possibile perché **React utilizza JavaScript nel browser per aggiornare dinamicamente solo le parti della pagina che cambiano**, senza bisogno di un reload completo.<br/>
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+In teoria, tutto ciò si potrebbe fare anche con JavaScript “puro” (Vanilla JS), ma sarebbe molto più complicato, ripetitivo ed _error-prone_, soprattutto in applicazioni complesse. React semplifica enormemente questo processo grazie ai **componenti riutilizzabili** e al suo **Virtual DOM**, rendendo lo sviluppo più veloce, ordinato e scalabile.
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]: https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+### Esempi di siti sviluppati con React
+
+- Facebook, Instagram, WhatsApp Web (naturalmente!);
+- Netflix;
+- Airbnb;
+- Discord.
+
+## React vs Vanilla JS: un esempio pratico
+
+Di seguito un esempio di due semplici web app, una sviluppata in Vanilla Js e l'altra in React:
+
+<a href="https://codesandbox.io/p/sandbox/vanilla-js-demo-6049kj" target="_blank">Vanilla JS</a><br/>
+<a href="https://codesandbox.io/p/sandbox/react-vs-vanilla-demo-uc08fv" target="_blank">React</a>
+
+Entrambe fanno la stessa cosa: mostrano delle tab con dei contenuti, e quando clicchiamo su una tab, il contenuto cambia dinamicamente senza ricaricare la pagina ma, naturalmente, lo fanno in maniera diversa.
+
+{% capture highlight %}
+Una delle più importanti differenze tra React e Vanilla Js sta nel fatto che React è **dichiariativo**, mentre Vanilla Js è **imperativo**.
+{% capture col1 %}
+
+### ![Logo React](/assets/images/React-icon.svg.png) React
+
+- Definiamo lo **stato finale** desiderato dell'interfaccia utente (ad esempio, quale tab è attiva e quale contenuto mostrare);
+- React si occupa **automaticamente** di aggiornare il DOM e rendere l'interfaccia coerente con quello stato;
+- Questo rende il codice più semplice, leggibile e meno soggetto a errori.
+  {% endcapture %}
+  {% capture col2 %}
+
+### ![Logo JS](/assets/images/javascript-logo.png) Vanilla Js
+
+- Dobbiamo definire **tutti i passaggi** necessari per aggiornare il DOM (ad esempio, aggiungere/rimuovere classi CSS, mostrare/nascondere contenuti, ecc.);
+- Questo rende il codice più complesso, verboso e più soggetto ad errori, soprattuto per interfacce complesse.
+
+{% endcapture %}
+
+{% include comparative_table.html col1=col1 col2=col2  %}
+
+{% endcapture %}
+
+{% include highlight.html content=highlight  %}
+
+{% capture esercizio %}
+
+## 💪 Esercizio di riscaldamento
+
+- Scarica la repository da qui 👉 [React-001](https://github.com/programmazione-web-its/react-001)
+- Installa l'app seguendo le istruzioni del `README.md`
+- Aggiungi un nuovo elenco all'array `content` nel file `App.js` in questo modo:
+
+  ```js
+  [
+    'lorem ipsum dolor sit amet',
+    'consectetur adipiscing elit',
+    ...
+  ]
+  ```
+
+- Aggiungi un quarto bottone alla lista delle tab, in modo che quando viene cliccato, mostri il nuovo elenco di contenuti.
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}

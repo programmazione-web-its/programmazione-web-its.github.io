@@ -4,7 +4,7 @@ title: Informazioni utili
 permalink: /informazioni-utili/
 ---
 
-### 👋 Benvenute e benvenuti futuri React developer!
+### 👋 Ciao futuri React developer!
 
 In questo corso imparerete a sviluppare applicazioni web moderne utilizzando **React**, una delle librerie JavaScript più popolari e potenti per la creazione di interfacce utente.
 
@@ -44,6 +44,7 @@ Insomma, imparerete facendo: per questo gran parte del corso sarà hands-on: scr
 
 - [Documentazione ufficiale di React](https://react.dev/)
 - [Tutorial di React](https://react.dev/learn)
+- [React Developer Tools - Chrome Extension](https://chromewebstore.google.com/detail/fmkadmapgofadopljbjfkapdkoienihi?utm_source=item-share-cb)
 
 ### 👾 Google meet per le lezioni
 
