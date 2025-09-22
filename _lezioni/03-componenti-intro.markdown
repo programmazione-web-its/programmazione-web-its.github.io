@@ -100,9 +100,9 @@ Da qui parte la costruzione di tutto l’albero dei componenti:
 
 Alla fine, React **raccoglie e combina** tutto questo codice JSX e lo **traduce in elementi HTML reali**, che vengono **inseriti nel DOM** e visualizzati sullo schermo.
 
-☝️ Nel DOM reale vedremo solo elementi nativi come `<div>`, `<header>`, `<h1>`, `<img>` ecc. e non i componenti React come `<App />` o `<Header />`, che esistono solo nel codice JavaScript. Questo è il motifvo per cui i nomi dei comopnenti React iniziano con la lettera maiuscola: per distinguerli dagli elementi HTML nativi, che invece iniziano con la lettera minuscola.
+☝️ Nel DOM reale vedremo solo elementi nativi come `<div>`, `<header>`, `<h1>`, `<img>` ecc. e non i componenti React come `<App />` o `<Header />`, che esistono solo nel codice JavaScript. Questo è il motifvo per cui i nomi dei componenti React iniziano con la lettera maiuscola: per distinguerli dagli elementi HTML nativi, che invece iniziano con la lettera minuscola.
 
-Il risultato finale è un **albero dei comopnenti** (Component Tree): una **gerarchia di componenti** che restituiscono JSX, che React trasforma e inietta nel DOM reale.
+Il risultato finale è un **albero dei componenti** (Component Tree): una **gerarchia di componenti** che restituiscono JSX, che React trasforma e inietta nel DOM reale.
 
 <div style="background-color: black; padding: 2rem; margin: 2rem auto"><img class="img-full-width" src="/assets/images/render_tree.png" alt="Component Tree" /></div>
 
