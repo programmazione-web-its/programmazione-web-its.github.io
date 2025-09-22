@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="progetto-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+<div class="btn-group">
+{% if page.github_url %}
+{% include github-repo-btn.html repo=page.github_url %}
+  {%- endif -%}
+<a class="sec-btn" href="{{page.final_url}}" target="_blank">Demo</a>
+</div>
+   </header>
+
+  <div class="post-content e-content relative" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

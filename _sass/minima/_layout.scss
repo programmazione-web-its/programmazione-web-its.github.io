@@ -367,3 +367,146 @@
     }
   }
 }
+
+.utility-box {
+  background-color: #f4e769;
+  padding: 2rem;
+  margin: 2rem 0 2rem auto;
+  max-width: 330px;
+  width: 100%;
+  aspect-ratio: 1/1;
+  box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.24);
+  transform: rotate(4deg) translateY(-50%);
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  h4 {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.25rem;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9rem;
+
+    li {
+      margin: 1rem 0;
+    }
+    a {
+      color: black;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    &::after {
+      content: '';
+      width: 14px;
+      height: 14px;
+      border-radius: 100%;
+      background-color: rgb(205, 7, 7);
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.24);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &::before {
+      content: '';
+      width: 28px;
+      height: 28px;
+      border-radius: 100%;
+      background-color: rgb(205, 7, 7);
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.24);
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-7px, -7px);
+    }
+  }
+
+  @include media-query($on-wide) {
+    position: relative;
+    transform: rotate(4deg);
+    margin-left: 0;
+  }
+  @include media-query($on-laptop) {
+    margin: 3rem auto;
+  }
+  @include media-query($on-palm) {
+    max-width: 65vw;
+  }
+}
+
+.flex {
+  display: flex;
+  gap: 5px;
+  position: relative;
+
+  @include media-query($on-wide) {
+    display: block;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.progetto-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.repo-btn {
+  background-color: $brand-color;
+
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  color: #fff;
+  transition: background-color 0.3s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 1rem;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    path {
+      fill: white;
+    }
+  }
+
+  &:hover {
+    background-color: rgba($brand-color, 0.75);
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+a.sec-btn {
+  display: inline-block;
+  background-color: #232323;
+  transition: opacity 0.3s linear;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1rem;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.7;
+  }
+}

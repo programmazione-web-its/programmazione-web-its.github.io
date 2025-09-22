@@ -2,8 +2,9 @@
 layout: post
 title: '#01. Introduzione a React'
 date: 2025-09-03 16:48:45 +0200
-categories: react javascript
+categories: lezioni
 excerpt: 'Che cosa è React e perché usarlo'
+featured_image: /assets/images/01.png
 ---
 
 # Che cos'è React?

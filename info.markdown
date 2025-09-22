@@ -42,9 +42,9 @@ Insomma, imparerete facendo: per questo gran parte del corso sarà hands-on: scr
 
 ### 🔗 Link utili:
 
-- [Documentazione ufficiale di React](https://react.dev/)
-- [Tutorial di React](https://react.dev/learn)
-- [React Developer Tools - Chrome Extension](https://chromewebstore.google.com/detail/fmkadmapgofadopljbjfkapdkoienihi?utm_source=item-share-cb)
+- <a href="https://react.dev/" target="_blank">Documentazione ufficiale di React</a>
+- <a href="https://react.dev/learn" target="_blank">Tutorial di React</a>
+- <a href="https://chromewebstore.google.com/detail/fmkadmapgofadopljbjfkapdkoienihi?utm_source=item-share-cb" target="_blank">React Developer Tools - Chrome Extension</a>
 
 ### 👾 Google meet per le lezioni
 
