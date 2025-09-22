@@ -70,7 +70,7 @@ export default MyComponent // Esporta il componente per poterlo usare in altri f
 ## 💪 La nostra prima app React
 
 - Crea il progetto in locale, chiamalo "to-do-list";
-- Fai partire il progetto con `npm start`;
+- Fai partire il progetto con `npm run dev`;
 
 {% endcapture %}
 
