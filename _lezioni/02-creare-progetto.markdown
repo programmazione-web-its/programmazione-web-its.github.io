@@ -63,7 +63,7 @@ Per installare un progetto React in localce, ci servono:
   Dove `my-app` è il nome che vogliamo dare alla cartella del progetto;
 
 - Una volta che il comando è terminato, ci spositamo nella cartella del progetto con `cd my-app`;
-- Installiamo le dipendenze del progetto con: `npm start`;
+- Installiamo le dipendenze del progetto con: `npm run dev`;
 - Apriamo il browser e andiamo all'indirizzo `http://localhost:3000/` (o quello indicato nel terminale) per vedere il progetto in esecuzione.
   <br/>
   <br/>

@@ -4,7 +4,7 @@ title: 'To do list'
 date: 2025-09-03 16:48:45 +0200
 categories: progetti
 featured_image: /assets/images/01.png
-github_url:
+github_url: programmazione-web-its/to-do-list
 final_url: https://tododemo-black.vercel.app/
 ---
 
