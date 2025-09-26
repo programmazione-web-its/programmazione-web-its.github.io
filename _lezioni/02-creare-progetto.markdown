@@ -3,7 +3,7 @@ layout: post
 title: '#02. Creare un progetto React'
 categories: lezioni
 excerpt: 'Come creare un nuovo progetto React da zero'
-featured_image: /assets/images/03.webp
+featured_image: /assets/images/fallback.webp
 ---
 
 ## 🛠️ Cosa ci serve?

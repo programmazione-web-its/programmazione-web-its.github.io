@@ -3,7 +3,7 @@ layout: post
 title: '#04.I contenuti dinamici'
 categories: lezioni
 excerpt: 'Come gestire il contenuto dinamico nei componenti React'
-featured_image: /assets/images/03.web
+featured_image: /assets/images/contenuti_dinamici.webp
 ---
 
 Nel nostro primo componente abbiamo inserito del contenuto statico, ovvero del testo fisso che non cambia mai.

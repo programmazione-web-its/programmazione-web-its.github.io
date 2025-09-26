@@ -3,7 +3,7 @@ layout: post
 title: '#03. I componenti'
 categories: lezioni
 excerpt: 'Cosa sono i compnenti e come si usano'
-featured_image: /assets/images/03.web
+featured_image: /assets/images/03.webp
 ---
 
 <img class="img-full-width" src="/assets/images/03.webp" alt="Lego brics, react component" />

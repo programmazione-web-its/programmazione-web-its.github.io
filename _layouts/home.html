@@ -10,45 +10,47 @@ layout: default
   {{ content }}
 
   {%- if site.lezioni.size > 0 -%}
-<div>  <h2 class="post-list-heading">{{ page.list_title | default: "Lezioni" }}</h2>
-  <ul class="post-list">
-    {%- for post in site.lezioni -%}
-    <li>
-      <a class="post-card-link" href="{{ post.url | relative_url }}">
-      
-        <h3>
+  <div>
+    <h2 class="post-list-heading">{{ page.list_title | default: "Lezioni" }}</h2>
+    <ul class="post-list">
+      {%- for post in site.lezioni -%}
+      <li>
+        <a class="post-card-link" href="{{ post.url | relative_url }}">
 
-          {{ post.title | escape }}
-    
-      </h3>
-      {%- if site.show_excerpts -%}
-      {{ post.excerpt }}
-      {%- endif -%}
-      </a>
-    </li>
-    {%- endfor -%}
-  </ul>
-</div>
+          <h3>
+
+            {{ post.title | escape }}
+
+          </h3>
+          {%- if site.show_excerpts -%}
+          {{ post.excerpt }}
+          {%- endif -%}
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
 
   {%- endif -%}
   {%- if site.progetti.size > 0 -%}
- <aside>
- <h2 class="post-list-heading">{{ page.list_title | default: "Progetti" }}</h2>
-  <ul class="post-list">
-    {%- for post in site.progetti -%}
-    <li>
-      <a class="post-card-link" href="{{ post.url | relative_url }}">
-      
-        <h3>
+  <aside>
+    <h2 class="post-list-heading">{{ page.list_title | default: "Progetti" }}</h2>
+    <ul class="project-list">
+      {%- for post in site.progetti -%}
+      <li>
+        <a href="{{ post.url | relative_url }}">
 
-          {{ post.title | escape }}
-    
-      </h3>
-      </a> </li>
-    {%- endfor -%}
-  </ul>
+          <h3>
 
-</aside>
+            {{ post.title | escape }}
+
+          </h3>
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+
+  </aside>
 
   {%- endif -%}
 </div>
