@@ -29,7 +29,7 @@ Ecco un esempio pratico per capire come funzionano le props.
 
 ```jsx
 // Card.jsx
-function ProfileCard(props) {
+function UserCard(props) {
   return (
     <div className='card'>
       <img src={props.image} alt={props.nickname} className='card-image' />
@@ -39,26 +39,23 @@ function ProfileCard(props) {
     </div>
   )
 }
-export default ProfileCard
+export default UserCard
 ```
 
-In questo esempio, abbiamo definito un componente `ProfileCard` che accetta tre props: `image` e `nickname`. Queste props vengono utilizzate all'interno del componente per personalizzare l'immagine, il nome e la descrizione visualizzati nella card.
+In questo esempio, abbiamo definito un componente `UserCard` che accetta tre props: `image` e `nickname`. Queste props vengono utilizzate all'interno del componente per personalizzare l'immagine, il nome e la descrizione visualizzati nella card.
 
-Per utilizzare il componente `ProfileCard` e passargli le props, possiamo fare così:
+Per utilizzare il componente `UserCard` e passargli le props, possiamo fare così:
 
 ```jsx
-import ProfileCard from './ProfileCard'
+import UserCard from './UserCard'
 function App() {
   return (
     <div>
-      <ProfileCard
+      <UserCard
         image='https://mypic.com/supermario93.jpg'
         nickname='supermario93'
       />
-      <ProfileCard
-        image='https://mypic.com/lorella22.jpg'
-        nickname='lorella22'
-      />
+      <UserCard image='https://mypic.com/lorella22.jpg' nickname='lorella22' />
     </div>
   )
 }
@@ -75,7 +72,7 @@ Possiamo accedere a ogni singola prop usando la notazione a punto, ad esempio `p
 Possiamo anche usare la **destructuring assignment** per estrarre le props direttamente nell'argomento della funzione, in questo modo:
 
 ```jsx
-function ProfileCard({ image, nickname }) {
+function UserCard({ image, nickname }) {
   return (
     <div className='card'>
       <img src={image} alt={nickname} className='card-image' />
@@ -85,7 +82,7 @@ function ProfileCard({ image, nickname }) {
     </div>
   )
 }
-export default ProfileCard
+export default UserCard
 ```
 
 In questo modo, possiamo usare direttamente `image` e `nickname` all'interno del componente, senza dover scrivere `props.image` o `props.nickname`.
@@ -93,7 +90,7 @@ In questo modo, possiamo usare direttamente `image` e `nickname` all'interno del
 Se poi le chiavi delle props sono molte possiamo anche fare la destructuring all'interno del corpo della funzione:
 
 ```jsx
-function ProfileCard(props) {
+function UserCard(props) {
   const { image, nickname } = props
   return (
     <div className='card'>
@@ -104,7 +101,7 @@ function ProfileCard(props) {
     </div>
   )
 }
-export default ProfileCard
+export default UserCard
 ```
 
 Ma possiamo anche passare le props come un singolo oggetto, ad esempio:
@@ -114,7 +111,65 @@ const user = {
   image: 'https://mypic.com/supermario93.jpg',
   nickname: 'supermario93'
 }
-<ProfileCard {...user} />
+<UserCard {...user} />
 ```
 
-In questo caso, usiamo lo **spread operator** (`...`) per "spalmare" le proprietà dell'oggetto `user` come props del componente `ProfileCard`. Questo è particolarmente utile quando abbiamo un oggetto con molte proprietà che vogliamo passare come props. Naturalmente, le chiavi dell'oggetto devono corrispondere ai nomi delle props che il componente si aspetta.
+In questo caso, usiamo lo **spread operator** (`...`) per "spalmare" le proprietà dell'oggetto `user` come props del componente `UserCard`. Questo è particolarmente utile quando abbiamo un oggetto con molte proprietà che vogliamo passare come props. Naturalmente, le chiavi dell'oggetto devono corrispondere ai nomi delle props che il componente si aspetta.
+
+{% capture esercizio %}
+
+## 📝 Quiz
+
+Quale tra gli esempi esempi di codice proposti **NON** è un modo corretto di passare le props al seguente componente React ?
+
+```jsx
+<GreetUser name='Alice' />
+```
+
+```jsx
+// A
+function GreetUser(props) {
+  return <h1>Hello, {props.name}!</h1>
+}
+
+// B
+function GreetUser({ ...props }) {
+  return <h1>Hello, {props.name}!</h1>
+}
+
+// C
+function GreetUser(name) {
+  return <h1>Hello, {name}!</h1>
+}
+
+// D
+function GreetUser({ name }) {
+  return <h1>Hello, {name}!</h1>
+}
+```
+
+<fieldset id="quiz01"> 
+<legend>Seleziona la risposta corretta</legend>
+  <div>
+    <input type="radio" id="a" name="quiz" value="a"  />
+    <label for="a">A</label>
+  </div>
+
+  <div>
+    <input type="radio" id="b" name="quiz" value="b" />
+    <label for="b">B</label>
+  </div>
+  <div>
+    <input type="radio" id="c" name="quiz" value="c" />
+    <label for="c">C</label>
+  </div>
+  <div>
+    <input type="radio" id="d" name="quiz" value="d" />
+    <label for="d">D</label>
+  </div>
+<div class="result"></div>
+</fieldset>
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}

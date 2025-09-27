@@ -100,16 +100,16 @@
     color: #099;
   } // Literal.Number
   .s {
-    color: #d14;
+    color: rgb(255, 247, 0);
   } // Literal.String
   .na {
-    color: #008080;
+    color: #ff3dd9;
   } // Name.Attribute
   .nb {
     color: #0086b3;
   } // Name.Builtin
   .nc {
-    color: #458;
+    color: #1cff16;
     font-weight: bold;
   } // Name.Class
   .no {
@@ -123,14 +123,14 @@
     font-weight: bold;
   } // Name.Exception
   .nf {
-    color: #900;
+    color: rgb(0, 238, 255);
     font-weight: bold;
   } // Name.Function
   .nn {
     color: #555;
   } // Name.Namespace
   .nt {
-    color: #000080;
+    color: #ff6f00;
   } // Name.Tag
   .nv {
     color: #008080;
@@ -172,7 +172,7 @@
     color: rgb(42, 25, 170);
   } // Literal.String.Heredoc
   .si {
-    color: #d14;
+    color: rgb(255, 11, 88);
   } // Literal.String.Interpol
   .sx {
     color: #d14;

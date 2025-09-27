@@ -5,11 +5,28 @@
   border-top: 5px solid $grey-color-dark;
   border-bottom: 1px solid $grey-color-light;
   min-height: $spacing-unit * 1.865;
+  padding: 1rem 0;
 
   // Positioning context for the mobile navigation icon
   position: relative;
-}
 
+  .site-title {
+    &:hover {
+      text-decoration: none;
+      img {
+        animation: spin 2s linear infinite;
+      }
+    }
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .site-title {
   @include relative-font-size(1.625);
   font-weight: 300;
@@ -527,6 +544,14 @@ a.sec-btn {
       opacity: 0.8;
     }
   }
+
+  .prev-post {
+    margin-right: auto;
+  }
+
+  .next-post {
+    margin-left: auto;
+  }
 }
 
 .home {
@@ -571,5 +596,14 @@ a.sec-btn {
   }
   h3 {
     margin-bottom: 0;
+  }
+}
+
+.highlighter-rouge .highlight {
+  background: #232323 !important;
+
+  code {
+    background: none;
+    color: #f6f6f6;
   }
 }
