@@ -40,33 +40,16 @@ export default function Button({ children }) {
 
 {% include highlight.html content=highlight  %}
 
-## Passare funzioni alle Props
+{% capture esercizio %}
 
-Una volta che abbiamo messo il componente in ascolto dell'evento, dobbiamo fare in modo che questo riceva la funzione e la esegua. Per fare in modo che il componente riceva la funzione possiamo passarla alle Props in questo modo:
+## 💪 Aggiungiamo un evento al Button
 
-```jsx
-export default function Button({ onButtonClick, children }) {
-  return <button onClick={onButtonClick}>{children}</button>
-}
-```
+- Creiamo due nuovi bottoni:
+  - Uno per mostrare le task completate;
+  - Uno per mostrare le task non completate;
+- Aggiungiamo un evento `onClick` ad entrambi i bottoni;
+- Creiamo due funzioni `showCompleted` e `showPending` che stampino un messaggio in console quando i bottoni vengono cliccati.
 
-In questo modo la funzione che gestisce il click non è interna al componente ma arriva dall'esterno e può essere diversa ad ogni utilizzo dello stesso componente:
+{% endcapture %}
 
-```jsx
-
-function sayHello() {
-  alert('Hello')
-}
-function sayGoodbye() {
-  alert('Goodbye')
-}
-
-<Button onButtonClick={sayHello}>Say Hello</Button>
-<Button onButtonClick={sayGoodbye}>Say Goodbye</Button>
-```
-
-In questo modo:
-
-- Il componente Button sa solo “quando il pulsante viene cliccato, eseguo la funzione che mi è stata passata”;
-- non deve conoscere i dettagli di cosa succede quando l’evento si verifica;
-- la funzione passata può fare qualsiasi cosa: aggiornare lo stato, modificare il contenuto, inviare dati a un server, ecc.
+{% include exercise_box.html content=esercizio %}
