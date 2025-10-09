@@ -28,7 +28,8 @@ $content-width: 1280px !default;
 $on-palm: 600px !default;
 $on-laptop: 1024px !default;
 $on-tablet: 800px !default;
-$on-wide: 1200px !default;
+$on-wide: 1280px !default;
+$on-xl: 1440px !default;
 
 // Use media queries like this:
 // @include media-query($on-palm) {

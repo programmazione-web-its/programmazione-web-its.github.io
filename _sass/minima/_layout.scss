@@ -54,8 +54,17 @@
   }
 
   .page-link {
-    color: $text-color;
+    color: white;
     line-height: $base-line-height;
+    background-color: $brand-color;
+    padding: 0.5rem 1.25rem;
+    border-radius: 4px;
+    transition: all 0.2s linear;
+
+    &:hover {
+      text-decoration: none;
+      opacity: 0.7;
+    }
 
     // Gaps between nav items, but not on the last one
     &:not(:last-child) {
@@ -270,6 +279,7 @@
   @include relative-font-size(2.625);
   letter-spacing: -1px;
   line-height: 1;
+  z-index: 99999;
 
   @include media-query($on-laptop) {
     @include relative-font-size(2.25);
@@ -380,7 +390,7 @@
   > div:first-child {
     max-width: 60%;
     flex-grow: 0;
-    flex-shrink: 0;
+    flex-shrink: 1;
   }
 }
 
@@ -442,7 +452,7 @@
     }
   }
 
-  @include media-query($on-wide) {
+  @include media-query($on-laptop) {
     position: relative;
     transform: rotate(4deg);
     margin-left: 0;
@@ -459,7 +469,7 @@
   display: flex;
   gap: 5px;
 
-  @include media-query($on-wide) {
+  @include media-query($on-laptop) {
     display: block;
   }
 }
@@ -570,23 +580,41 @@ a.sec-btn {
   }
 
   aside {
-    background-color: $brand-color;
-    border-radius: 8px;
-    padding: 2rem 1rem;
     width: 25%;
     position: sticky;
     top: 2rem;
-    box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.24);
+
     @include media-query($on-tablet) {
       width: 100%;
+    }
+  }
+
+  aside .progetti {
+    background-color: $brand-color;
+    border-radius: 8px;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.24);
+  }
+  aside .esercizi {
+    background-color: $grey-color-dark;
+    border-radius: 8px;
+    padding: 2rem 1rem;
+    box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.24);
+
+    h2 {
+      color: $brand-color;
     }
   }
 }
 
 .project-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   li {
-    padding: 1rem;
     color: #fff;
+    margin-bottom: 1rem;
   }
   a {
     color: inherit;
@@ -596,6 +624,20 @@ a.sec-btn {
   }
   h3 {
     margin-bottom: 0;
+  }
+}
+
+.exercise-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  li {
+    color: #fff;
+    margin-bottom: 1rem;
+  }
+  a {
+    color: inherit;
+    line-height: 1;
   }
 }
 

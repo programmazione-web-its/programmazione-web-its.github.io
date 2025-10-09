@@ -34,22 +34,38 @@ layout: default
   {%- endif -%}
   {%- if site.progetti.size > 0 -%}
   <aside>
-    <h2 class="post-list-heading">{{ page.list_title | default: "Progetti" }}</h2>
-    <ul class="project-list">
-      {%- for post in site.progetti -%}
-      <li>
-        <a href="{{ post.url | relative_url }}">
+    <div class="progetti">
+      <h2 class="post-list-heading">{{ page.list_title | default: "Progetti" }}</h2>
+      <ul class="project-list">
+        {%- for post in site.progetti -%}
+        <li>
+          <a href="{{ post.url | relative_url }}">
 
-          <h3>
+            <h3>
 
-            {{ post.title | escape }}
+              {{ post.title | escape }}
 
-          </h3>
-        </a>
-      </li>
-      {%- endfor -%}
-    </ul>
+            </h3>
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
 
+    </div>
+    <div class="esercizi">
+      <h2 class="post-list-heading">Esercizi</h2>
+      <ul class="exercise-list">
+       
+        <li>
+          <a href="https://github.com/programmazione-web-its/esercizi/tree/main" target="_blank">
+            Gestire lo stato e gli eventi      
+          </a>
+        </li>
+   
+       
+      </ul>
+
+    </div>
   </aside>
 
   {%- endif -%}
