@@ -1,0 +1,167 @@
+---
+layout: post
+title: '#19. Elevazione dello stato'
+categories: lezioni
+excerpt: Cos'è l'elevazione dello stato e quando usarla
+featured_image:
+---
+
+{% capture standardcontent %}
+Quando si sviluppano applicazioni React, può capitare di dover condividere lo stato tra componenti diversi. Una tecnica comune per gestire questa situazione è l'**elevazione dello stato** o, in inglese, **lifting state up**.
+
+Un esempio può essere una lista di elementi con un campo di ricerca: il campo di ricerca e la lista sono due componenti separati, ma il valore del campo di ricerca deve influenzare gli elementi mostrati nella lista, oppure il gioco del Tris: la griglia del gioco e il pannello che mostra il punteggio sono due componenti distinti, ma entrambi devono condividere lo stato del gioco.
+
+## 🤨 Il problema
+
+I componenti separati non possono accedere direttamente allo stato di un altro componente. Se il componente A ha uno stato che deve essere condiviso con il componente B, non è possibile farlo direttamente.
+
+## 😀 La soluzione: elevare lo stato
+
+La soluzione è **elevare lo stato**, ovvero spostare lo stato nel componente genitore comune e più vicino a tutti i componenti che ne hanno bisogno. In questo modo, il componente genitore gestisce lo stato e lo passa ai componenti figli tramite le props.
+
+{% endcapture %}
+{% capture protips %}
+
+  <h4>Utile da sapere</h4>
+  - 🔗 [Lifting state up by example ](https://react.dev/learn/sharing-state-between-components#lifting-state-up-by-example)
+  {% endcapture %}
+
+{% include utility_box.html content=standardcontent tip=protips %}
+
+### Esempio pratico
+
+Supponiamo di avere due componenti: `SearchBar` e `ItemList`. `SearchBar` consente all'utente di inserire un termine di ricerca, mentre `ItemList` mostra una lista di elementi filtrati in base al termine di ricerca.
+
+```jsx
+function SearchBar({ searchTerm, onSearch }) {
+  return (
+    <input
+      type='text'
+      value={searchTerm}
+      onChange={(e) => onSearch(e.target.value)}
+      placeholder='Search...'
+    />
+  )
+}
+function ItemList({ items }) {
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  )
+}
+```
+
+e poi nel componente genitore `App`:
+
+```jsx
+import { useState } from 'react'
+export default function App() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const allItems = ['Apple', 'Banana', 'Orange', 'Mango', 'Grapes']
+  const filteredItems = allItems.filter((item) =>
+    item.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
+  return (
+    <div>
+      <h1>Item Search</h1>
+      <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
+      <ItemList items={filteredItems} />
+    </div>
+  )
+}
+```
+
+In questo esempio, lo stato `searchTerm` è elevato al componente `App`, che è il genitore comune di `SearchBar` e `ItemList`. `App` gestisce lo stato e lo passa a `SearchBar` tramite la prop `searchTerm` e la funzione `setSearchTerm` tramite la prop `onSearch`. `ItemList` riceve gli elementi filtrati tramite la prop `items`.
+
+{% capture highlight %}
+
+☝️ **L'elevazione dello stato** è una tecnica fondamentale in React per sincronizzare più componenti, evitare duplicazioni dello stato e mantenere la UI coerente.
+
+{% endcapture %}
+{% include highlight.html content=highlight  %}
+
+### ⚠️ Evitare la ridondanza dello stato
+
+L'elevazione dello stato serve ad evitarne la ridodnanza. Avere lo stesso stato in più componenti può portare a incoerenze e bug difficili da gestire mentre creare **una singola fonte di verità** aiuta a mantenere il codice più pulito e facile da mantenere. La chiave è: centralizzare lo stato nel componente più alto che ne ha bisogno e passarlo ai componenti figli tramite le props.
+
+### Quando non usare l'elevazione dello stato
+
+L'elevazione dello stato è utile quando più componenti devono condividere lo stesso stato. Tuttavia, non è sempre necessario. Se uno stato è specifico di un singolo componente e non deve essere condiviso, è meglio mantenerlo all'interno di quel componente per evitare complessità inutili.
+Ad esempio, uno stato che gestisce la visibilità di un menu a tendina in un componente di navigazione non ha bisogno di essere elevato se nessun altro componente deve conoscerne lo stato.
+
+### Un'alternativa all'elevazione dello stato: usare i callback
+
+Quando vogliamo che uno stato gestito in un componente genitore venga aggiornato da un componente figlio, in React si utilizza una callback passata tramite props.
+Questo permette di mantenere separati lo stato locale dei componenti e lo stato condiviso dell’app, evitando ridondanza e aggiornamenti non necessari.
+
+#### Un esempio pratico
+
+- abbiamo un componente `App` che gestisce lo stato dei task (lista di elementi da fare);
+- abbiamo un componente `TodoList` che mostra la lista;
+- abbiamo un componente `TodoItem` che mostra un singolo task con un pulsante per completarlo.
+
+Vogliamo che quando clicchiamo “Completa” su un task, lo stato globale della lista venga aggiornato, e il componente genitore `App` gestisca lo stato in modo immutabile.
+Nel nostro comopnente `App` definiamo lo stato e la funzione per aggiornare lo stato:
+
+```jsx
+import { useState } from 'react'
+export default function App() {
+  const [tasks, setTasks] = useState([
+    { id: 1, text: 'Fare la spesa', completed: false },
+    { id: 2, text: 'Pulire la casa', completed: false },
+    { id: 3, text: 'Studiare React', completed: false },
+  ])
+
+  function handleComplete(taskId) {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, completed: true } : task
+      )
+    )
+  }
+
+  return (
+    <div>
+      <h1>Todo List</h1>
+      <TodoList tasks={tasks} onComplete={handleComplete} />
+    </div>
+  )
+}
+```
+
+In `TodoList`, riceviamo i task e la funzione `onComplete` come props e la passiamo a ogni `TodoItem`:
+
+```jsx
+function TodoList({ tasks, onComplete }) {
+  return (
+    <ul>
+      {tasks.map((task) => (
+        <TodoItem key={task.id} task={task} onComplete={onComplete} />
+      ))}
+    </ul>
+  )
+}
+```
+
+E infine, in `TodoItem`, usiamo la prop `onComplete` per chiamare la funzione del genitore quando l'utente clicca il pulsante:
+
+```jsx
+function TodoItem({ task, onComplete }) {
+  return (
+    <li>
+      <span
+        style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+      >
+        {task.text}
+      </span>
+      {!task.completed && (
+        <button onClick={() => onComplete(task.id)}>Completa</button>
+      )}
+    </li>
+  )
+}
+```
