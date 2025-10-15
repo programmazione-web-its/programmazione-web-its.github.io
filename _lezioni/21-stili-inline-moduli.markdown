@@ -96,4 +96,39 @@ In questo esempio, abbiamo importato gli stili dal file `MyComponent.module.css`
      title="jovial-fog-35gx9j"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+></iframe>
+
+{% capture highlight %}
+
+### 🎉 Bonus 🎉
+
+In React possiamo gestire gli stili in modo dinamico e condizionale usando anche delle librerie esterne come [clsx](https://www.npmjs.com/package/clsx) o [classnames](https://www.npmjs.com/package/classnames). Queste librerie ci permettono di combinare classi CSS in modo semplice e leggibile, ad esempio:
+
+```jsx
+import classNames from 'classnames'
+
+const buttonClass = classNames({
+  active: isActive,
+  disabled: isDisabled,
+  'btn-primary': true, // classe sempre applicata
+})
+
+return <button className={buttonClass}>Click me</button>
+```
+
+Oppure potremmo scrivere
+
+```jsx
+const buttonClass = classNames(
+  'btn', // sempre applicata
+  { active: isActive }, // applicata solo se isActive è true
+  someOtherClass // variabile contenente altre classi
+)
+
+return <button className={buttonClass}>Click me</button>
+```
+
+Lo stesso concetto vale per la libreria `clsx`, che offre funzionalità simili.
+
+{% endcapture %}
+{% include highlight.html content=highlight  %}
