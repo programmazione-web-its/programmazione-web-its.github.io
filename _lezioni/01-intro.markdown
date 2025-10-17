@@ -50,7 +50,7 @@ Una delle più importanti differenze tra React e Vanilla Js sta nel fatto che Re
   {% endcapture %}
   {% capture col2 %}
 
-### ![Logo JS](/assets/images/javascript-logo.png) Vanilla Js
+### ![Logo JS](/assets/images/javaScript-logo.png) Vanilla Js
 
 - Dobbiamo definire **tutti i passaggi** necessari per aggiornare il DOM (ad esempio, aggiungere/rimuovere classi CSS, mostrare/nascondere contenuti, ecc.);
 - Questo rende il codice più complesso, verboso e più soggetto ad errori, soprattuto per interfacce complesse.
