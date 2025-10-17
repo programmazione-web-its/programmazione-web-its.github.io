@@ -1,0 +1,60 @@
+---
+layout: post
+title: '#23. React DOM APIs: createPortal'
+categories: lezioni
+excerpt: Rendering di componenti in altre pardi del DOM
+featured_image:
+---
+
+{% capture standardcontent %}
+
+Insieme a React viene installato `react-dom`, pacchetto specifico per le applicazioni web. `react-dom` mette a disposizione diverse API legate al DOM del browser, che possono essere importate direttamente dentro i componenti. Tra queste c'è `createPortal`.
+
+## Cos'è createPortal
+
+`createPortal` è una API di `react-dom` che ci permette di renderizzare dei contenuti in una parte diversa del DOM Tree.
+
+Per creare un portale è necessario prima importare `createPortal`, poi passare del JSX e infine definire in quale nodo del DOM il nostro elemento deve essere mostrato
+
+```jsx
+import { createPortal } from 'react-dom'
+export default function App() {
+  return (
+    <div>
+      <p>This child is placed in the parent div.</p>
+      {createPortal(
+        <p>This child is placed in the document body.</p>,
+        document.body
+      )}
+    </div>
+  )
+}
+```
+
+{% endcapture %}
+{% capture protips %}
+
+  <h4>Utile da sapere</h4>
+Il pacchetto `react-dom` fornisce i metodi necessari per eseguire il rendering dei componenti React nel DOM del browser.
+Questi metodi vengono usati nel punto d’ingresso dell’applicazione web (non all’interno dei componenti).
+React di per sé è indipendente dalla piattaforma, mentre `react-dom` è specifico per il web.
+  - 🔗 [React DOM Api](https://react.dev/reference/react-dom)
+  - 🔗 [createPoral](https://react.dev/reference/react-dom/createPortal)
+  {% endcapture %}
+
+{% include utility_box.html content=standardcontent tip=protips %}
+
+{% capture highlight %}
+
+☝️ Anche se un portal **sposta visivamente** il contenuto in un altro punto del DOM (ad esempio, per mostrare un modale sopra tutto il resto), a livello logico **React considera ancora quel contenuto parte del componente padre**.
+
+{% endcapture %}
+
+{% include highlight.html content=highlight  %}
+
+<iframe src="https://codesandbox.io/embed/cylv4v?view=preview&module=%2Fsrc%2Fstyles.css"
+     style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+     title="portal-sempio"
+     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+   ></iframe>
