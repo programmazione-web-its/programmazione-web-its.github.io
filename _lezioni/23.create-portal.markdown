@@ -2,7 +2,7 @@
 layout: post
 title: '#23. React DOM APIs: createPortal'
 categories: lezioni
-excerpt: Rendering di componenti in altre pardi del DOM
+excerpt: Rendering di componenti in altre parti del DOM
 featured_image:
 ---
 
