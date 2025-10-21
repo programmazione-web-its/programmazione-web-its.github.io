@@ -496,7 +496,7 @@
 
 .repo-btn {
   background-color: $brand-color;
-
+  border: 1px solid $brand-color;
   border-radius: 4px;
   padding: 0.4rem 1rem;
   color: #fff;
@@ -525,11 +525,30 @@
 a.sec-btn {
   display: inline-block;
   background-color: #232323;
+  border: 1px solid #232323;
   transition: opacity 0.3s linear;
   color: #fff;
   border-radius: 4px;
   padding: 0.4rem 1rem;
   margin-bottom: 1rem;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.7;
+  }
+}
+a.figma-btn {
+  display: inline-block;
+  background-color: #ffff;
+  border: 1px solid black;
+  transition: opacity 0.3s linear;
+  color: transparent;
+  border-radius: 4px;
+  padding: 0.4rem 1rem;
+  margin-bottom: 1rem;
+  background-image: url('images/figma.svg');
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
   &:hover {
     text-decoration: none;
     opacity: 0.7;

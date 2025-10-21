@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#24. Prop Drilling e Context API'
+title: '#24. Prop Drilling'
 categories: lezioni
 excerpt: Risolvere il problema del prop drilling centralizzando lo stato con la Context API
 featured_image:
@@ -39,13 +39,3 @@ Questo inoltro delle proprietà può diventare difficile da gestire in applicazi
 
 - possiamo gestire la composizione dei componenti in modo da limitare il passaggio di props;
 - oppure possiamo gestire lo stato condiviso in modo più **pulito e centralizzato** con la **Context API**.
-
-## La React Context API
-
-La **Context API** è una funzionalità integrata in React che rende molto semplice condividere dati tra componenti, anche attraverso più livelli dell’albero dei componenti.
-
-### Come funziona
-
-1. Si **crea un valore di contesto** che rappresenta i dati che vogliamo condividere;
-2. si **fornisce** quel contesto, avvolgendo uno o più componenti all'interno di un provider del contesto;
-3. si **connette** il **valore** del contesto **ad uno stato**: in questo modo lo stato condiviso e le funzioni per aggiornarlo diventano immediatamente disponibili a tutti i componenti che ne hanno bisogno, senza passare props manualmente.

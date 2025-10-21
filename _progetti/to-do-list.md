@@ -1,6 +1,6 @@
 ---
 layout: progetto
-title: 'To do list'
+title: '📋 To do list'
 date: 2025-09-03 16:48:45 +0200
 categories: progetti
 featured_image: /assets/images/01.png

@@ -9,7 +9,12 @@ layout: default
 {% if page.github_url %}
 {% include github-repo-btn.html repo=page.github_url %}
   {%- endif -%}
+{%  if page.final_url %}
 <a class="sec-btn" href="{{page.final_url}}" target="_blank">Demo</a>
+  {% endif %}
+{%  if page.figma %}
+<a class="figma-btn" href="{{page.figma}}" target="_blank">Design guide</a>
+  {% endif %}
 </div>
    </header>
 
