@@ -39,8 +39,8 @@ La **Context API** rappresenta quindi una soluzione potente e pulita per gestire
 
 ## Come si crea il contesto (context)
 
-1. È buona prassi creare una cartella dedicata ai _context_: questa cartella può chiamarsi ad esempio `store` e la creiamo all'interno della cartella `src`.
-   All'interno della cartella `store` creiamo un nuovo file `jsx` per ciascuno dei context che ci potrebbero servire. Ad esempio, per la nostra app _FAKESHOP_ potremmo creare un file `cart-context.jsx`.
+- È buona prassi creare una cartella dedicata ai _context_: questa cartella può chiamarsi ad esempio `store` e la creiamo all'interno della cartella `src`.
+  All'interno della cartella `store` creiamo un nuovo file `jsx` per ciascuno dei context che ci potrebbero servire. Ad esempio, per la nostra app _FAKESHOP_ potremmo creare un file `cart-context.jsx`.
 
 {% capture highlight %}
 
@@ -51,7 +51,7 @@ Anche il nome del file del contesto è a libera scelta, aggiungere _context_ all
 
 {% include highlight.html content=highlight  %}
 
-2. All'interno del nostro file del Context, dobbiamo creare il contesto con `createContext()`
+- All'interno del nostro file del Context, dobbiamo creare il contesto con `createContext()`
 
 ```jsx
 import { createContext } from 'react'
@@ -73,9 +73,11 @@ Spesso si utilizza un oggetto, così da poter aggiungere più proprietà o funzi
 
 {% include highlight.html content=highlight2  %}
 
-3. A questo punto dobbiamo fornire il contesto ai componenti che dovranno accedervi. Per farlo, React ci mette a disposizione un **Provider**, che fa parte dell'oggetto creato con `createContext()`.
-   Tornando al nostro esempio, `CartContext` contiene una proprietà chiamata `.Provider,` che è a tutti gli effetti un componente React.
-   Possiamo utilizzarlo per “avvolgere” i componenti che devono avere accesso al contesto.
+## Come si passa il contesto
+
+A questo punto dobbiamo fornire il contesto ai componenti che dovranno accedervi. Per farlo, React ci mette a disposizione un **Provider**, che fa parte dell'oggetto creato con `createContext()`.
+Tornando al nostro esempio, `CartContext` contiene una proprietà chiamata `.Provider,` che è a tutti gli effetti un componente React.
+Possiamo utilizzarlo per “avvolgere” i componenti che devono avere accesso al contesto.
 
 ```jsx
 import CartContext from './store/cart-context'
@@ -104,7 +106,9 @@ Qualsiasi componente all’interno di questo wrapper **potrà leggere o modifica
 
 {% include highlight.html content=highlight3  %}
 
-4. Finalmente, possiamo _consumare_ il contesto (leggerne i valori) all'interno di qualsiasi componente figlio. Per farlo, dobbiamo utilizzare **l'hook `useContext`**
+## Come si consuma il contesto
+
+Finalmente, possiamo _consumare_ il contesto (leggerne i valori) all'interno di qualsiasi componente figlio. Per farlo, dobbiamo utilizzare **l'hook `useContext`**
 
 ```jsx
 import { useContext } from 'react'
@@ -112,6 +116,8 @@ import CartContext from '../store/cart-context'
 
 function Cart() {
   const cartCtx = useContext(CartContext)
+  // oppure possiamo destrutturare
+  const { items } = useContext(CartContext)
 
   return (
     <div>
@@ -122,4 +128,100 @@ function Cart() {
 }
 ```
 
-`const cartCtx = useContext(CartContext)` ci dà accesso diretto ai dati del contesto, senza passare props da un componente all'altro.
+`const cartCtx = useContext(CartContext)` ci dà accesso diretto ai dati del contesto, **senza passare props** da un componente all'altro.
+
+## Collegare il Context allo State
+
+Quando si crea un Context, è possibile fornire un valore iniziale.
+Tuttavia, se questo valore è statico, i componenti che lo utilizzano non vedranno mai aggiornamenti: riceveranno sempre lo stesso dato.
+
+Per rendere il Context reattivo e collegato allo stato dell’applicazione, è necessario **fornire come valore del Context uno stato (state)** o un oggetto che ne dipenda.
+In questo modo, ogni volta che lo stato cambia, anche il valore del Context si aggiorna automaticamente, e tutti i componenti che ne fanno uso vengono aggiornati di conseguenza.
+
+```jsx
+import { useState } from 'react'
+import CartContext from './store/cart-context'
+
+function App() {
+  const [cart, setCart] = useState({ items: [] })
+
+  return (
+    <CartContext.Provider value={cart}>
+      <Header />
+      <Shop />
+    </CartContext.Provider>
+  )
+}
+```
+
+## Leggere e aggiornare i dati tramite Context
+
+Con il Context collegato allo stato, i componenti possono leggere i dati, ma non ancora modificarli.
+Per rendere il Context completo, possiamo includere nel valore anche le funzioni di aggiornamento.
+
+```jsx
+import { useState } from 'react'
+import CartContext from './store/cart-context'
+
+function App() {
+  const [cart, setCart] = useState({ items: [] })
+  function addItemToCart(item) {
+    setCart((prev) => ({ items: [...prev.items, item] }))
+  }
+
+  const ctxValue = {
+    items: cart.items,
+    addItemToCart,
+  }
+
+  return (
+    <CartContext.Provider value={ctxValue}>
+      <Header />
+      <Shop />
+    </CartContext.Provider>
+  )
+}
+```
+
+## Usare il context nei componenti
+
+Un componente che vuole accedere o modificare il Context può farlo tramite l’hook `useContext`:
+
+```jsx
+import { useContext } from 'react'
+import CartContext from '../store/CartContext'
+
+function Product({ id, title }) {
+  const cartCtx = useContext(CartContext)
+
+  // oppure
+  const { items, addItemToCart } = useContext(CartContext)
+
+  function handleAdd() {
+    cartCtx.addItemToCart({ id, title })
+  }
+
+  return <button onClick={handleAdd}>Aggiungi al carrello</button>
+}
+```
+
+☝️ In questo esempio il componente `Product` può ora aggiungere elementi al carrello senza ricevere props perché il Context fornisce tutto ciò che serve.
+
+{% capture highlight789 %}
+
+### 🧐 È buona norma:
+
+- Definire un valore iniziale chiaro: anche se vuoto, aiuta con l’autocompletamento e previene errori;
+
+```jsx
+const CartContext = createContext({
+  items: [],
+  addItemToCart: () => {},
+})
+```
+
+- evitare logiche complesse nel Context: le funzioni dovrebbero limitarsi ad aggiornare lo stato, non a gestire regole applicative;
+- usare più Context se necessario: meglio avere più Context separati (es. uno per il tema, uno per l’utente) che un unico Context enorme.
+  {% endcapture %}
+
+{% include highlight.html content=highlight789  %}
