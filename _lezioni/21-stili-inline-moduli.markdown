@@ -120,8 +120,8 @@ Oppure potremmo scrivere
 
 ```jsx
 const buttonClass = classNames(
-  'btn', // sempre applicata
-  { active: isActive }, // applicata solo se isActive è true
+  'btn bg-red text-white', // sempre applicata
+  { active: isActive, 'btn-disabled': isDisabled }, // applicata solo se isActive è true
   someOtherClass // variabile contenente altre classi
 )
 
