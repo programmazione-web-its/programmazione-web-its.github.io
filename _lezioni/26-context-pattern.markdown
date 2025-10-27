@@ -22,7 +22,7 @@ Esiste un pattern alternativo molto diffuso nei progetti React che permette di i
 ## Come si implementa il pattern
 
 1. **Creazione del Provider Component**<br/>
-   Nel file dove si crea il Context, oltre a definire e esportare il contesto stesso, si crea anche un **componente provider** personalizzato. Questo componente avrà un nome descrittivo che riflette il suo scopo. Ad esempio `CartContextPrivder`;
+   Possiamo creare una nuova cartella e chiamarla, ad esempio,`providers` e al suo interno creare un **componente provider** personalizzato. Questo componente avrà un nome descrittivo che riflette il suo scopo. Ad esempio `CartContextProivder`;
 
 2. **Spostamento della Logica**<br/>
    Tutta la logica precedentemente presente nel componente principale viene trasferita nel provider component:
@@ -48,7 +48,7 @@ Esiste un pattern alternativo molto diffuso nei progetti React che permette di i
      {children}
      ```
 
-4. **Utilizzo nel componente principale**<br/>
+4) **Utilizzo nel componente principale**<br/>
    Nel componente principale:
    - si importa il provider component personalizzato (non più l'oggetto context);
    - si rimuove tutta la logica di gestione dello stato;
@@ -122,15 +122,9 @@ export const DataContext = createContext({
 
 ```jsx
 // data-context.jsx
-import { createContext, useState } from 'react'
+import { useState } from 'react'
 
-export const DataContext = createContext({
-  items: [],
-  user: null,
-  addItem: () => {},
-  removeItem: () => {},
-  updateUser: () => {},
-})
+import { DataContext } from './data-context.js'
 
 export function DataContextProvider({ children }) {
   const [items, setItems] = useState([])
@@ -164,7 +158,7 @@ export function DataContextProvider({ children }) {
 
 ```jsx
 // App.jsx
-import { DataContextProvider } from './data-context.jsx'
+import { DataContextProvider } from './providers/DataContextProvider.jsx'
 import Header from './Header.jsx'
 import Content from './Content.jsx'
 
