@@ -1,0 +1,26 @@
+{
+  "name": "programmazione-web-its.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lezioniToPdf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/programmazione-web-its/programmazione-web-its.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/programmazione-web-its/programmazione-web-its.github.io/issues"
+  },
+  "homepage": "https://github.com/programmazione-web-its/programmazione-web-its.github.io#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "pdf-lib": "^1.17.1",
+    "puppeteer": "^24.26.1"
+  }
+}

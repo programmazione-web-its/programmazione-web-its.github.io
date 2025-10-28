@@ -1,0 +1,37 @@
+/* --- Stili solo per il PDF --- */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .site-header,
+  .site-footer,
+  .post-navigation,
+  .utility-box {
+    display: none !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+
+  img {
+    max-width: 100%;
+    page-break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: #222;
+    page-break-after: avoid;
+  }
+
+  pre,
+  code {
+    font-size: 13px !important;
+    white-space: pre-wrap !important;
+  }
+}
