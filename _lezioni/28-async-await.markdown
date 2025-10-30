@@ -73,7 +73,7 @@ useEffect(() => {
 }, [])
 ```
 
-In questo esempio, `fetchData` è definita fuori da `useEffect` e non dipende da nessuna variabile di stato o props. All'interno di `useEffect`, definiamo un'altra funzione asincrona `getData` che chiama `fetchData` e aggiorna lo stato con i dati ricevuti.
+In questo esempio, `fetchData` è definita fuori da `useEffect` e non dipende da nessuna variabile di stato o props. All'interno di `useEffect`, definiamo un'altra funzione asincrona `getData` che chiama `fetchData` e aggiorna lo stato con i dati ricevuti.git
 
 #### ❌ Qui **non va bene** definire la funzione asicrona fuori da `useEffect`:
 
