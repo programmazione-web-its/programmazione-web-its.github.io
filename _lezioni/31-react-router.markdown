@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#30. React Router per la gestione delle SPA'
+title: '#31. React Router per la gestione delle SPA'
 categories: lezioni
 excerpt: Gestire la navigazione in una Single Page Application con React Router
 featured_image:

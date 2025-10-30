@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#29. Introduzione al routing'
+title: '#30. Introduzione al routing'
 categories: lezioni
 excerpt: Gestire la navigazione in una Single Page Application con React Router
 featured_image:
