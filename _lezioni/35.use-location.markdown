@@ -1,0 +1,93 @@
+---
+layout: post
+title: '#34. Ottenere informazioni sulla posizione con useLocation'
+categories: lezioni
+excerpt: Ottenere informazioni sull'URL corrente con l'hook useLocation di React Router
+featured_image:
+---
+
+In React Router, oltre a navigare tra le pagine, spesso è utile conoscere informazioni sulla route corrente.
+Per fare questo, React Router fornisce l’hook `useLocation`.
+
+## Cos'è e cosa fa useLocation?
+
+`useLocation` è un hook che restituisce un oggetto che rappresenta la **posizione attuale** nel router.
+Questo oggetto contiene informazioni come:
+
+- `pathname`: il percorso corrente (es. `/about`o `/products/123`);
+- `search`: la query string (es. `?q=react`);
+- `hash`: eventuale hash (es. `#section1`);
+- `state`: eventuale stato passato tramite navigate o `<Link>`
+
+## Come usare useLocation
+
+Per utilizzare `useLocation`, dobbiamo importarlo da `react-router-dom` e chiamarlo all’interno di un componente funzionale. Ecco un esempio:
+
+```jsx
+import { useLocation } from 'react-router-dom'
+
+function CurrentPath() {
+  const location = useLocation()
+
+  console.log(location)
+
+  return <p>Sei sulla pagina: {location.pathname}</p>
+}
+```
+
+In questo esempio, `useLocation` restituisce l’oggetto `location`, che contiene tutte le informazioni sulla posizione corrente. Stiamo visualizzando il `pathname` nella pagina.
+
+## Quando si usa?
+
+`useLocation` è utile quando vogliamo:
+
+- leggere query string o parametri di stato;
+- eseguire effetti (useEffect) al cambio di route;
+- mostrare contenuti diversi a seconda della pagina corrente.
+
+Se ad esempio vogliamo eseguire un’azione ogni volta che l’utente cambia pagina, possiamo usare `useLocation` all’interno di un `useEffect`:
+
+```jsx
+import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+function PageTracker() {
+  const location = useLocation()
+
+  useEffect(() => {
+    console.log('Pagina cambiata a:', location.pathname)
+    // Esegui altre azioni, come inviare dati di analisi
+  }, [location])
+
+  return null
+}
+```
+
+In questo modo, ogni volta che la posizione cambia, l’effetto verrà eseguito.
+
+Oppure, se vogliamo leggere i query params dall’URL:
+
+```jsx
+function SearchPage() {
+  const location = useLocation()
+  const query = new URLSearchParams(location.search)
+  const term = query.get('q') || ''
+
+  return <p>Risultati per: {term}</p>
+}
+```
+
+Se invece vogliamo accedere allo stato passato durante la navigazione:
+
+```jsx
+// Navigazione
+navigate('/about', { state: { fromHome: true } })
+
+// Nella pagina About
+function About() {
+  const location = useLocation()
+  console.log(location.state) // { fromHome: true }
+  return <p>Benvenuto nella pagina About</p>
+}
+```
+
+In sintesi, `useLocation` è uno strumento potente per ottenere informazioni sulla route corrente e reagire ai cambiamenti di navigazione all’interno della tua applicazione React.

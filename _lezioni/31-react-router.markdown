@@ -32,6 +32,7 @@ Una volta installato React Router possiamo aggiungere il router alla nostra app,
   - 🔗 [Mastering React routing](https://www.contentful.com/blog/react-routing/)
   - 👀 [Configurazione delle rotte](https://reactrouter.com/start/data/routing)
   - 👀 [Approfondimento su Link](https://reactrouter.com/api/components/Link#link)
+  - 👀 [Approfondimento su NavLink](https://reactrouter.com/api/components/NavLink#navlink)
 
 {% endcapture %}
 
@@ -128,3 +129,62 @@ export default function Navbar() {
 Se proviamo ad inserire un link usando un normale tag `<a>`, in effetti, la navigazione funzionerà, ma causerà un **refresh completo della pagina**. Questo perché il browser interpreta il click su un tag `<a>` come una richiesta di caricamento di una nuova pagina. In una Single Page Application (SPA) come quelle create con React, vogliamo evitare questo comportamento per mantenere lo stato dell'applicazione e migliorare l'esperienza utente. Utilizzando il componente `Link` di React Router, invece, la navigazione avviene **senza ricaricare la pagina**, permettendo a React di gestire il cambiamento di vista in modo fluido e veloce.
 {% endcapture %}
 {% include highlight.html content=highlight  %}
+
+### Il NavLink
+
+Un altro componente utile per la navigazione è `NavLink`, che funziona in modo simile a `Link`, ma offre funzionalità aggiuntive per gestire lo stato attivo del link. Ad esempio, possiamo applicare uno stile diverso al link quando l'utente si trova sulla pagina corrispondente:
+
+```jsx
+import { NavLink } from 'react-router-dom'
+export default function Navbar() {
+  return (
+    <nav>
+      <ul>
+        <li>
+          <NavLink
+            to='/'
+            style={({ isActive }) => ({
+              fontWeight: isActive ? 'bold' : 'normal',
+            })}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive }) => (isActive ? 'active' : '')}
+            to='/about'
+          >
+            About
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  )
+}
+```
+
+In questo esempio, il link corrispondente alla pagina attiva verrà visualizzato in grassetto, grazie alla proprietà `isActive` fornita da `NavLink`.
+
+{% capture highlight %}
+
+### ☝️ Quando usare NavLink invece di Link?
+
+Usa `NavLink` quando vuoi applicare stili o classi specifiche ai link in base alla loro attivazione, ad esempio per evidenziare la pagina corrente nella barra di navigazione. Usa `Link` per i link standard che non richiedono uno stato attivo.
+{% endcapture %}
+{% include highlight.html content=highlight  %}
+
+### Stato nei Link e NavLink
+
+Possiamo anche passare uno stato personalizzato ai link utilizzando la proprietà `state`. Questo stato sarà accessibile nella pagina di destinazione tramite l'hook `useLocation`.
+
+```jsx
+import { Link } from 'react-router-dom'
+export default function ProductLink({ productId }) {
+  return (
+    <Link to={`/products/${productId}`} state={{ fromDashboard: true }}>
+      Vai al prodotto
+    </Link>
+  )
+}
+```
