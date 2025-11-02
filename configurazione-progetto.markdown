@@ -10,7 +10,7 @@ permalink: /configurazione-progetto/
 
   ```env
   REACT_APP_BASE_URL=https://api.themoviedb.org/3
-  REACT_APP_BEARER_TOKEN=il tuo token // Sostituisci con la tua chiave API personale
+  REACT_APP_BEARER_TOKEN=il tuo token // sostituisci con il tuo token
   ```
 
 - aggiungi il file `.env` al tuo `.gitignore` per evitare di caricare la chiave API su repository pubblici;
