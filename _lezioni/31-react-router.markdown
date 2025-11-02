@@ -12,6 +12,16 @@ featured_image:
 
 Per installare React Router nella tua applicazione React esegui uno dei seguenti il comando nel terminale all'interno della directory del tuo progetto:
 
+React Router >= 7
+
+```bash
+npm i react-router
+```
+
+oppure
+
+React Router < 7
+
 ```bash
 npm i react-router-dom
 ```
@@ -45,7 +55,10 @@ Possiamo configurare le rotte importando `createBrowserRouter` all'interno del n
 ```jsx
 // App.jsx
 
-import { createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter } from "react-router" // React Router >= 7
+
+import { createBrowserRouter } from 'react-router-dom' // React Router < 7
+
 import Homepage from './pages/Homepage'
 
 
@@ -86,7 +99,11 @@ Una volta definite le rotte, dobbiamo inizializzare il router all'interno del no
 ```jsx
 // App.jsx
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom' // React Router < 7
+
+import { createBrowserRouter } from "react-router" // React Router >= 7
+import { RouterProvider } from "react-router/dom";// React Router >= 7
+
 import Homepage from './pages/Homepage'
 
 
@@ -102,7 +119,9 @@ const router = createBrowserRouter([{ path: '/', Component: <Homepage> }]);
 Per permettere agli utenti di navigare tra le diverse pagine della nostra applicazione, possiamo utilizzare il componente `Link` di React Router:
 
 ```jsx
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom' // React Router < 7
+import { Link } from 'react-router' // React Router >= 7
+
 export default function Navbar() {
   return (
     <nav>
