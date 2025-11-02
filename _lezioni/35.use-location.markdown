@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#34. Ottenere informazioni sulla posizione con useLocation'
+title: '#35. Ottenere informazioni sulla posizione con useLocation'
 categories: lezioni
 excerpt: Ottenere informazioni sull'URL corrente con l'hook useLocation di React Router
 featured_image:

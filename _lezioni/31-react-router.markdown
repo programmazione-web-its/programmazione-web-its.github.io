@@ -55,18 +55,17 @@ Possiamo configurare le rotte importando `createBrowserRouter` all'interno del n
 ```jsx
 // App.jsx
 
-import { createBrowserRouter } from "react-router" // React Router >= 7
+import { createBrowserRouter } from 'react-router' // React Router >= 7
 
 import { createBrowserRouter } from 'react-router-dom' // React Router < 7
 
 import Homepage from './pages/Homepage'
 
-
-export default function App()  {
+export default function App() {
   return <div></div>
 }
 
-const router = createBrowserRouter([{ path: '/', Component: <Homepage> }])
+const router = createBrowserRouter([{ path: '/', Component: Homepage }])
 ```
 
 L'oggetto `router` contiene la definizione delle rotte della nostra applicazione. Oltre alla proprietà `path`, che definisce l'URL associato alla rotta, possiamo specificare anche altre proprietà come:
@@ -101,17 +100,16 @@ Una volta definite le rotte, dobbiamo inizializzare il router all'interno del no
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom' // React Router < 7
 
-import { createBrowserRouter } from "react-router" // React Router >= 7
-import { RouterProvider } from "react-router/dom";// React Router >= 7
+import { createBrowserRouter } from 'react-router' // React Router >= 7
+import { RouterProvider } from 'react-router/dom' // React Router >= 7
 
 import Homepage from './pages/Homepage'
-
 
 export default function App() {
   return <RouterProvider router={router} />
 }
 
-const router = createBrowserRouter([{ path: '/', Component: <Homepage> }]);
+const router = createBrowserRouter([{ path: '/', Component: Homepage }])
 ```
 
 ### 3. Creare i componenti di navigazione
