@@ -195,15 +195,5 @@ Usa `NavLink` quando vuoi applicare stili o classi specifiche ai link in base al
 
 ### Stato nei Link e NavLink
 
-Possiamo anche passare uno stato personalizzato ai link utilizzando la proprietà `state`. Questo stato sarà accessibile nella pagina di destinazione tramite l'hook `useLocation`.
-
-```jsx
-import { Link } from 'react-router-dom'
-export default function ProductLink({ productId }) {
-  return (
-    <Link to={`/products/${productId}`} state={{ fromDashboard: true }}>
-      Vai al prodotto
-    </Link>
-  )
-}
-```
+Possiamo anche passare uno stato personalizzato ai link utilizzando la proprietà `state`. Questo stato sarà accessibile nella pagina di destinazione tramite l'hook `useLocation`.<br/>
+![Logo JS](/assets/images/link-state.png)
