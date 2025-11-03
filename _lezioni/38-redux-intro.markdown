@@ -75,3 +75,26 @@ Esempio:il login dell’utente. Se un utente effettua l’accesso:
 
 La prima soluzione è usare la **Context API** di React per evitare il prop drilling.
 La seconsa è usare **Redux**.
+
+#### 🤔 Ma se esiste il Context, perché usare Redux?
+
+Abbiamo visto che **React Context** può andare benissimo in molte situazioni, ma può anche presentare due problemi principali:
+
+1. Struttura complessa e difficile da mantenere: quando l’app cresce, potremmo trovarci con tanti `Context.Provider` annidati o, al contrario, con un unico enorme provider che gestisce troppi stati diversi. Entrambe le soluzioni diventano difficili da gestire nel tempo;
+2. Problemi di performance: React Context funziona bene quando lo stato cambia raramente (es. tema, autenticazione), ma non è pensato per stati che cambiano spesso (es. carrelli, input utente in tempo reale, liste che si aggiornano di frequente).
+   Ogni volta che un valore nel Context cambia, tutti i componenti che lo consumano vengono rieseguiti, anche se a loro non serve il dato aggiornato — e questo può diventare pesante.
+
+Quindi, quando l’applicazione diventa complessa e lo stato cambia frequentemente, Redux può essere una soluzione più adatta perché:
+
+- Centralizza la gestione dello stato in un unico punto chiamato **store**;
+- rende ogni aggiornamento dello stato più prevedibile e facile da tracciare;
+- migliora le performance evitando riesecuzioni inutili dei componenti;
+- offre strumenti avanzati per il debug e lo sviluppo, come Redux DevTools.
+
+### I 3 principi fondamentali di Redux
+
+Redux si basa su tre concetti chiave:
+
+1. **Single Source of Truth (Un’unica fonte di verità)**: tutto lo stato della tua applicazione vive in un unico store globale. Questo elimina la necessità di creare decine di context diversi e rende più facile condividere i dati tra componenti;
+2. **Lo stato è di sola lettura**: l’unico modo per cambiare lo stato è inviare un’**azione** (un oggetto che descrive cosa è successo) allo store. Questo rende le modifiche dello stato più prevedibili e tracciabili;
+3. **Le modifiche sono effettuate con funzioni pure**: le azioni vengono “intercettate” dai reducers, che sono funzioni pure (cioè senza effetti collaterali) che ricevono lo stato attuale e l’azione, e restituiscono un nuovo stato aggiornato.
