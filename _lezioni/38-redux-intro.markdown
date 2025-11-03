@@ -27,6 +27,7 @@ Ogni volta che modifichiamo uno stato con setState, React sa che deve ridisegnar
   <h4>Utile da sapere</h4>
   - 🔗 [Documentazione ufficiale di Redux](https://react-redux.js.org/)
   - 🔗 [Redux Best Practice](https://redux.js.org/style-guide/)
+  - 🔗 [Redux Dev Tools](https://chromewebstore.google.com/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
   {% endcapture %}
 
 {% include utility_box.html content=standardcontent tip=protips %}
