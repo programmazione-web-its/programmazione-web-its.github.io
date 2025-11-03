@@ -63,3 +63,4 @@ async function getPopularMovies() {
 ## Strumenti utili
 
 [Postman](https://www.postman.com/) - per testare le API prima di integrarle nel codice.
+[Esempio di Search Bar con React Router](https://codesandbox.io/p/sandbox/searchbar-demo-6lv6rr) - per implementare una barra di ricerca che aggiorna l'URL senza ricaricare la pagina.
