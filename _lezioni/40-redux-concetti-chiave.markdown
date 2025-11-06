@@ -26,6 +26,7 @@ Tuttavia, la configurazione di Redux "puro" può essere piuttosto verbosa. Per q
   - 🔗 [Documentazione ufficiale di Redux](https://react-redux.js.org/)
   - 🔗 [Documentazione ufficiale di Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)
   - 🔗 [Approfondimento: perché Redux Toolkit è lo standard moderno](https://redux-toolkit.js.org/introduction/why-rtk-is-redux-today)
+  - 🔗 [Differenze tra Redux e Redux Toolkit](https://medium.com/@sparklewebhelp/redux-vs-redux-toolkit-which-state-management-tool-is-best-for-your-project-6fd8bab311ef)
   {% endcapture %}
 
 {% include utility_box.html content=standardcontent tip=protips %}
