@@ -17,8 +17,8 @@ permalink: /configurazione-progetto/
 - crea un file `env.example` nella root del progetto, da committare, per mostrare la struttura del file `.env` senza esporre la chiave API:
 
   ```env
-  REACT_APP_BASE_URL=https://api.themoviedb.org/3
-  REACT_APP_BEARER_TOKEN=il-tuo-token
+  VITE_API_BASE_URL=https://api.themoviedb.org/3
+  VITE_APP_BEARER_TOKEN=il-tuo-token
   ```
 
 ## Utilizzare le variabili d'ambiente nel codice
@@ -26,17 +26,17 @@ permalink: /configurazione-progetto/
 - per accedere alle variabili d'ambiente nel codice React, utilizza `process.env.NOME_VARIABILE`:
 
   ```javascript
-  const BASE_URL = process.env.REACT_APP_BASE_URL
-  const API_KEY = process.env.REACT_APP_BEARER_TOKEN
+  const BASE_URL = process.env.VITE_API_BASE_URL
+  const API_KEY = process.env.VITE_APP_BEARER_TOKEN
   ```
 
-⚠️ In React, tutte le variabili d'ambiente devono essere prefissate con `REACT_APP_` per essere accessibili nel codice.
+⚠️ In React, tutte le variabili d'ambiente devono essere prefissate con `VITE_` per essere accessibili nel codice.
 
 ## Esempio di chiamate API
 
 ```javascript
-const ACCESS_TOKEN = process.env.REACT_APP_TMDB_API_KEY
-const BASE_URL = process.env.REACT_APP_TMDB_BASE_URL
+const ACCESS_TOKEN = process.env.VITE_API_BASE_URL
+const BASE_URL = process.env.VITE_APP_BEARER_TOKEN
 
 async function getPopularMovies() {
   try {
