@@ -26,17 +26,19 @@ permalink: /configurazione-progetto/
 - per accedere alle variabili d'ambiente nel codice React, utilizza `process.env.NOME_VARIABILE`:
 
   ```javascript
-  const BASE_URL = process.env.VITE_API_BASE_URL
-  const API_KEY = process.env.VITE_APP_BEARER_TOKEN
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL
+  const API_KEY = import.meta.env.VITE_APP_BEARER_TOKEN
   ```
 
-⚠️ In React, tutte le variabili d'ambiente devono essere prefissate con `VITE_` per essere accessibili nel codice.
+⚠️ In React con VITE, tutte le variabili d'ambiente devono essere prefissate con `VITE_` per essere accessibili nel codice.
+
+🕵️ [Env variables in Vite](https://vite.dev/guide/env-and-mode)
 
 ## Esempio di chiamate API
 
 ```javascript
-const ACCESS_TOKEN = process.env.VITE_API_BASE_URL
-const BASE_URL = process.env.VITE_APP_BEARER_TOKEN
+const ACCESS_TOKEN = import.meta.env.VITE_API_BASE_URL
+const BASE_URL = import.meta.env.VITE_APP_BEARER_TOKEN
 
 async function getPopularMovies() {
   try {
