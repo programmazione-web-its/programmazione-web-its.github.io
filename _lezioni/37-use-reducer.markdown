@@ -141,7 +141,4 @@ Cosa succede qui:
 - usiamo `action.payload` per sapere quale prodotto aggiungere;
 - restituiamo un **nuovo oggetto stato** con gli item aggiornati
 
-{% capture highlight %}
-☝️ È importante ricordare che un reducer **non deve mai modificare lo stato esistente direttamente**, ma restituirne una **nuova copia aggiornata**.
-{% endcapture %}
-{% include highlight.html content=highlight  %}
+a
