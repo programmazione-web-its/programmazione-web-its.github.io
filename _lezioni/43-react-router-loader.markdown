@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#43. React Router Loader'
+title: '#43. React Router Loader: get data'
 categories: lezioni
 excerpt: Data fetching con React Router, usando il `loader()`
 featured_image:
