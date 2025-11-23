@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#56. APi Routes'
+title: '#56. API Routes'
 categories: lezioni
 excerpt: Creare enpoint interni all'app e consumarli sia lato client che lato server
 featured_image:
