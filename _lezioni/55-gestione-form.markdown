@@ -101,25 +101,21 @@ import { addPost } from '@/lib/actions'
 
 {% include highlight.html content=highlight  %}
 
-## useActionState
+## useFormStatus
 
-Durante l'esecuzione di una Server Function possiamo mostrare un indicatore di loading con l'hook `useActionState`:
+Durante l'esecuzione di una Server Function possiamo mostrare un indicatore di loading con l'hook `useFormStatus`:
 
 ```jsx
 'use client'
 
-import { useActionState, startTransition } from 'react'
+import { useFormStatus, startTransition } from 'react'
 import { addPost } from '@/lib/actions'
 
 export function Button() {
-  const [state, action, pending] = useActionState(addPost, false)
+  const { pending } = useFormStatus()
 
-  return (
-    <button onClick={() => startTransition(action)}>
-      {pending ? 'Please wait...' : 'Create Post'}
-    </button>
-  )
+  return <button>{pending ? 'Please wait...' : 'Create Post'}</button>
 }
 ```
 
-👉 [Approfondimento ed esempi sull'aggiornamento dei dati in Next.js](https://nextjs.org/docs/app/getting-started/updating-data)
+👉 [Approfondimento su useFormStatus](https://react.dev/reference/react-dom/hooks/useFormStatus)
