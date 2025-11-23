@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#42. Redux asincrono'
+title: '#43. Redux asincrono'
 categories: lezioni
 excerpt: Gestire le azioni asincrone in Redux
 featured_image:
