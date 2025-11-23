@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#56. Build di un app Next.js'
+title: '#57. Build di un app Next.js'
 categories: lezioni
 excerpt: Prerendering, Cache e Dati Dinamici in Produzione con Next.js
 featured_image:

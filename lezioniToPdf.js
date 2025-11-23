@@ -9,10 +9,18 @@ const outputDir = './pdf/lezioni'
 const mergedPdfPath = './pdf/lezioni-completo.pdf'
 const customCssPath = './pdf-style.css'
 
+/* -----------------------------------------------------
+   🔧 CONFIGURAZIONE RANGE PAGINE
+   Imposta qui da quale pagina iniziare e finire.
+   Le pagine sono 1-based (es: 1 = prima pagina).
+----------------------------------------------------- */
+const RANGE_START = 1 // Cambia qui (es: 5)
+const RANGE_END = 999 // Cambia qui (es: 20) - oppure molto grande se vuoi "fino alla fine"
+/* ----------------------------------------------------- */
+
 ;(async () => {
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true })
 
-  // 🔹 Avvia un piccolo server che serve la cartella _site
   const app = express()
   app.use(express.static('_site'))
   const server = app.listen(4000, () =>
@@ -22,68 +30,82 @@ const customCssPath = './pdf-style.css'
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
 
-  async function convertDir(dir) {
-    const files = fs.readdirSync(dir)
+  async function convertDir(dir, startIndex = 0) {
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.html'))
     const pdfFiles = []
 
-    for (const file of files) {
+    for (let i = startIndex; i < files.length; i++) {
+      const file = files[i]
       const filePath = path.join(dir, file)
-      const stat = fs.statSync(filePath)
+      const relPath = path.relative(inputDir, filePath)
+      const htmlUrl = `http://localhost:4000/lezioni/${relPath.replace(
+        /\\/g,
+        '/'
+      )}`
+      const pdfPath = path.join(outputDir, relPath.replace(/\.html$/, '.pdf'))
+      const pdfDir = path.dirname(pdfPath)
+      fs.mkdirSync(pdfDir, { recursive: true })
 
-      if (stat.isDirectory()) {
-        const nestedPdfs = await convertDir(filePath)
-        pdfFiles.push(...nestedPdfs)
-      } else if (file.endsWith('.html')) {
-        const relPath = path.relative(inputDir, filePath)
-        const htmlUrl = `http://localhost:4000/lezioni/${relPath.replace(
-          /\\/g,
-          '/'
-        )}`
-        const pdfPath = path.join(outputDir, relPath.replace(/\.html$/, '.pdf'))
-        const pdfDir = path.dirname(pdfPath)
-        fs.mkdirSync(pdfDir, { recursive: true })
+      console.log(`📄 Converto: ${htmlUrl}...`)
+      await page.goto(htmlUrl, { waitUntil: 'networkidle0' })
 
-        console.log(`📄 Converto: ${htmlUrl}...`)
-        await page.goto(htmlUrl, { waitUntil: 'networkidle0' })
-
-        // Inietta CSS aggiuntivo per la stampa
-        if (fs.existsSync(customCssPath)) {
-          const cssContent = fs.readFileSync(customCssPath, 'utf8')
-          await page.addStyleTag({ content: cssContent })
-        }
-
-        await page.pdf({
-          path: pdfPath,
-          format: 'A4',
-          printBackground: true,
-          margin: { top: '20mm', bottom: '20mm', left: '15mm', right: '15mm' },
-        })
-
-        console.log(`✅ Salvato: ${pdfPath}`)
-        pdfFiles.push(pdfPath)
+      // Inietta CSS aggiuntivo per la stampa
+      if (fs.existsSync(customCssPath)) {
+        const cssContent = fs.readFileSync(customCssPath, 'utf8')
+        await page.addStyleTag({ content: cssContent })
       }
+
+      await page.pdf({
+        path: pdfPath,
+        format: 'A4',
+        printBackground: true,
+        margin: { top: '20mm', bottom: '20mm', left: '15mm', right: '15mm' },
+      })
+
+      console.log(`✅ Salvato: ${pdfPath}`)
+      pdfFiles.push(pdfPath)
     }
 
     return pdfFiles
   }
 
-  const allPdfFiles = await convertDir(inputDir)
-  await browser.close()
-  server.close() // 🔹 Chiude il server Express
+  // Per partire dal file 29:
+  const allPdfFiles = await convertDir(inputDir, 41) // Indice 28 = file 29 (0-based)
 
-  // 🔹 UNISCE TUTTI I PDF IN UNO SOLO
-  console.log('📚 Creo PDF unificato...')
+  await browser.close()
+  server.close()
+
+  /* -----------------------------------------------------
+     📚 UNISCE I PDF CON RANGE DI PAGINE
+  ----------------------------------------------------- */
+
+  console.log('📚 Creo PDF unificato SOLO per il range selezionato...')
 
   const mergedPdf = await PDFDocument.create()
+  let globalPageIndex = 0
+
   for (const pdfFile of allPdfFiles) {
     const pdfBytes = fs.readFileSync(pdfFile)
     const pdf = await PDFDocument.load(pdfBytes)
-    const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices())
-    copiedPages.forEach((page) => mergedPdf.addPage(page))
+
+    const totalPages = pdf.getPageCount()
+
+    for (let i = 0; i < totalPages; i++) {
+      const pageNumber = globalPageIndex + 1 // pagina reale (1-based)
+
+      if (pageNumber >= RANGE_START && pageNumber <= RANGE_END) {
+        const [copiedPage] = await mergedPdf.copyPages(pdf, [i])
+        mergedPdf.addPage(copiedPage)
+      }
+
+      globalPageIndex++
+    }
   }
 
   const mergedPdfBytes = await mergedPdf.save()
   fs.writeFileSync(mergedPdfPath, mergedPdfBytes)
 
-  console.log(`🎉 Tutto pronto! File finale: ${mergedPdfPath}`)
+  console.log(
+    `🎉 PDF finale generato con pagine da ${RANGE_START} a ${RANGE_END}: ${mergedPdfPath}`
+  )
 })()
