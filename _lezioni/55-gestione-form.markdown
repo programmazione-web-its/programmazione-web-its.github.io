@@ -101,21 +101,28 @@ import { addPost } from '@/lib/actions'
 
 {% include highlight.html content=highlight  %}
 
-## useFormStatus
+## Redirect dopo un submit
 
-Durante l'esecuzione di una Server Function possiamo mostrare un indicatore di loading con l'hook `useFormStatus`:
+Next.js ci mette a disposizione una funzione `redirect` che ci permette di reindirizzare l'utente verso un'altra URL dopo un evento o una mutation.
+
+👀La funzione  `redirect` può essere usata nei Server Component, nelle Server Actions e nei Route Handlers.
+
+Da un esempio della documentazione ufficiale:
 
 ```jsx
-'use client'
-
-import { useFormStatus, startTransition } from 'react'
-import { addPost } from '@/lib/actions'
-
-export function Button() {
-  const { pending } = useFormStatus()
-
-  return <button>{pending ? 'Please wait...' : 'Create Post'}</button>
+'use server'
+ 
+import { redirect } from 'next/navigation'
+import { revalidatePath } from 'next/cache'
+ 
+export async function createPost(id) {
+  try {
+    // Call database
+  } catch (error) {
+    // Handle errors
+  }
+  redirect(`/post/${id}`) // Navigate to the new post page
 }
 ```
 
-👉 [Approfondimento su useFormStatus](https://react.dev/reference/react-dom/hooks/useFormStatus)
+👉 [Approfondimento sui redirect in Next.js](https://nextjs.org/docs/app/guides/redirecting)
