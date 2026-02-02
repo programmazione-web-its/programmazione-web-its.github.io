@@ -24,7 +24,7 @@ Naturalmente, l'idea di immaginare le interfacce utente come una combinazione di
 ## Perché usare i componenti?
 
 L'idea alla base di un qualsiasi componente è quella di mettere insieme **struttura (HTML)**, **stile (CSS)** e **comportamento (JavaScript)** in un unico blocco riutilizzabile. Insieme questi tre elemento definiscono e controllano l'aspetto e il funzionamento del componente e, di conseguenza, una parte della UI.
-Questo ci consente di suddividere interfacce complesse in parti più piccole, più facilmente gestibile e potenzilamente riutilizzabili.
+Questo ci consente di suddividere interfacce complesse in parti più piccole, i e potenzilamente riutilizzabili.
 
 <p class="img-group"><img src="" class="img-medium" src="/assets/images/component.webp" alt="Componenti React" />
 <img src="" class="img-medium" src="/assets/images/component-layout.webp" alt="Componenti React" /></p>
@@ -62,7 +62,7 @@ export default MyComponent // Esporta il componente per poterlo usare in altri f
 
 ☝️ Di fatto, un componente React è semplicemente una funzione JavaScript che restituisce del JSX. Questa funziona, però, **deve seguire due regole:**
 
-1. Il nome della funzione deve **iniziare** con la **lettera maiuscola** (PascalCase);
+1. Il nome della funzione deve **iniziare** con la **lettera maiuscola** (<a href="https://www.freecodecamp.org/italian/news/convenzioni-di-nomenclatura-nella-programmazione-camel-snake-kebab-e-pascal-case-spiegati/" target="_blanke">PascalCase</a>);
 2. la funzoine deve **restituire** sempre un valore "renderizzabile" da React, come un elemento JSX, `null` o un booleano.
 
 {% capture esercizio %}
@@ -83,7 +83,7 @@ export default MyComponent // Esporta il componente per poterlo usare in altri f
 Quando creiamo un componente React personalizzato, è utile capire come il suo contenuto arrivi effettivamente sullo schermo.
 Aprendo il sito e ispezionando il codice HTML generato, notiamo che lì non compaiono l’intestazione, le immagini o altri contenuti del sito ma solo alcuni metadati e almeno un file JavaScript caricato. Quel file è **l’entry point** della nostra applicazione (ad esempio index.jsx), che contiene il codice React **già trasformato in una versione che il browser può eseguire.**
 
-Guardnado il file `index.jsx` di un'applicazione React notiamo in effetti che è molto semplice: contiene solo la struttura di base e un elemento `<div id="root"></div>`.
+Guardando il file `index.jsx` di un'applicazione React notiamo in effetti che è molto semplice: contiene solo la struttura di base e un elemento `<div id="root"></div>`.
 
 A partire da questo punto, React prende in mano il **rendering** dell’applicazione.
 

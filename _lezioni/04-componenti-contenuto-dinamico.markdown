@@ -55,7 +55,7 @@ export default dummyTasks
 
 ```
 
-Importando questo array di oggetti nel nostro componente `TodoList`, possiamo usarlo per generare dinamicamente il contenuto della lista delle attività. Per passari dinamicamente i dati al componente usiamo le **props** e poi mostriamo il risultato tramite le parentesi graffe `{}` in JSX.
+Importando questo array di oggetti nel nostro componente `TodoList`, possiamo usarlo per generare dinamicamente il contenuto della lista delle attività. Per passare dinamicamente i dati al componente usiamo le **props** e poi mostriamo il risultato tramite le parentesi graffe `{}` in JSX.
 
 ```jsx
 import React from 'react'
