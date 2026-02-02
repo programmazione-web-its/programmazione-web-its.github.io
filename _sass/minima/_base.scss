@@ -237,23 +237,29 @@ table {
   text-align: $table-text-align;
   color: lighten($text-color, 18%);
   border-collapse: collapse;
-  border: 1px solid $grey-color-light;
+  border: 1px solid #333;
+  table-layout: fixed;
+  max-width: 600px;
   tr {
     &:nth-child(even) {
-      background-color: lighten($grey-color-light, 6%);
+      background-color: lighten(#f6f6f6, 6%);
     }
   }
+
   th,
   td {
     padding: ($spacing-unit * 0.3333333333) ($spacing-unit * 0.5);
+    &:not(:first) {
+      text-align: right;
+    }
   }
   th {
     background-color: lighten($grey-color-light, 3%);
-    border: 1px solid darken($grey-color-light, 4%);
-    border-bottom-color: darken($grey-color-light, 12%);
+    border: 1px solid darken(#333, 4%);
+    border-bottom-color: darken(#333, 12%);
   }
   td {
-    border: 1px solid $grey-color-light;
+    border: 1px solid #333;
   }
 }
 
