@@ -27,7 +27,7 @@ Per installare un progetto React in localce, ci servono:
 
 ### <img class="img-logo" src="/assets/images/vite.svg" alt="Vite Logo" /> Creare un progetto React con **Vite**
 
-- Dopo aver installato Noode.js, apriamo il terminale o da computer o da Visual Studio Code;
+- Dopo aver installato Node.js, apriamo il terminale o da computer o da Visual Studio Code;
 - Spositiamoci nella cartella in cui vogliamo creare il progetto, ad esempio `cd ~/Documenti/Progetti`;
 - Digitiamo il comando per creare un nuovo progetto con Vite:
 
@@ -52,7 +52,7 @@ Per installare un progetto React in localce, ci servono:
 
 ### <img class="img-logo" src="/assets/images/react-app.svg" alt="React App Logo" /> Creare un progetto React con **Create React App**
 
-- Dopo aver installato Noode.js, apriamo il terminale o da computer o da Visual Studio Code;
+- Dopo aver installato Node.js, apriamo il terminale o da computer o da Visual Studio Code;
 - Spositiamoci nella cartella in cui vogliamo creare il progetto, ad esempio `cd ~/Documenti/Progetti`;
 - Digitiamo il comando per creare un nuovo progetto con Vite:
 
