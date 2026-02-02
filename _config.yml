@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title:  React | ITS ICT 2024 - 2026
+title:  React | ITS ICT 2025 - 2027
 email: annalisa.antonioli@its-ictpiemonte.it
 description: >- # this means to ignore newlines until "baseurl:"
   Sito per il corso di React. Qui trovate le dispense, i link e tutto il materiale necessario. 

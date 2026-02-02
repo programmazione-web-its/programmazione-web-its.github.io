@@ -48,7 +48,7 @@ Insomma, imparerete facendo: per questo gran parte del corso sarà hands-on: scr
 
 ### 👾 Google meet per le lezioni
 
-- [Link per accedere alle lezioni](https://meet.google.com/qmj-tcqc-brg?pli=1&authuser=4)
+<a href="https://meet.google.com/vrw-gmbz-ign" target="_blank">Link per accedere alle lezioni</a>
 
 ### 📬 Contatti
 
