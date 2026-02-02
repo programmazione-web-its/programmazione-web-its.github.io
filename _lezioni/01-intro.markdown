@@ -50,7 +50,7 @@ Una delle più importanti differenze tra React e Vanilla Js sta nel fatto che Re
   {% endcapture %}
   {% capture col2 %}
 
-### ![Logo JS](/assets/images/javaScript-logo.png) Vanilla Js
+### ![Logo JS](/assets/images/JavaScript-logo.png) Vanilla Js
 
 - Dobbiamo definire **tutti i passaggi** necessari per aggiornare il DOM (ad esempio, aggiungere/rimuovere classi CSS, mostrare/nascondere contenuti, ecc.);
 - Questo rende il codice più complesso, verboso e più soggetto ad errori, soprattuto per interfacce complesse.
@@ -63,11 +63,16 @@ Una delle più importanti differenze tra React e Vanilla Js sta nel fatto che Re
 
 {% include highlight.html content=highlight  %}
 
+### 🔗 Link utili
+
+- <a href="https://react.dev/learn/thinking-in-react" target="_blank">Thinking in React</a>
+- <a href="https://www.fullstackfoundations.com/blog/imperative-vs-declarative" target="_blank">Imperative vs Declarative Programming</a>
+
 {% capture esercizio %}
 
 ## 💪 Esercizio di riscaldamento
 
-- Scarica la repository da qui 👉 [React-001](https://github.com/programmazione-web-its/react-001)
+- Scarica la repository da qui 👉 <a href="https://github.com/programmazione-web-its/react-001" target="_blank">React-001</a>
 - Installa l'app seguendo le istruzioni del `README.md`
 - Aggiungi un nuovo elenco all'array `content` nel file `App.js` in questo modo:
 
