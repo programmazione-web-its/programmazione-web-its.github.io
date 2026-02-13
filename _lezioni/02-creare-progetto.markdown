@@ -16,12 +16,17 @@ Per installare un progetto React in localce, ci servono:
 - Un editor di codice, come [Visual Studio Code](https://code.visualstudio.com/).
   {% endcapture %}
   {% capture protips %}
+
   <h4>Utile da sapere</h4>
   - 🔗 [Documentazione ufficiale di React per l'installazione](https://react.dev/learn/installation)
   - Per far partire un progetto React sul browser, possiamo digitare nella barra degli indirizzi `react.new` e premere invio: in automatico verrà creato un nuovo progetto React su [CodeSandbox](https://codesandbox.io/), un ambiente di sviluppo online.
   - 🔗 [Documentazione ufficiale di Vite](https://vitejs.dev/guide/)
   - 🔗 [Documentazione ufficiale di Create React App](https://create-react-app.dev/docs/getting-started/)
   {% endcapture %}
+
+**Node.js è un ambiente di esecuzione** che permette di utilizzare **JavaScript al di fuori del browser.** Normalmente JavaScript nasce per funzionare lato client, cioè all’interno delle pagine web; con Node, invece, possiamo eseguire codice JavaScript direttamente sul nostro computer. Questo è fondamentale quando lavoriamo con strumenti come Vite o Create React App, perché sono programmi che girano nel terminale e hanno bisogno di un motore capace di **interpretare JavaScript anche lato server.**
+
+Oltre a questo, Node.js include **npm (Node Package Manager)**, il gestore di pacchetti che ci permette di installare librerie e dipendenze necessarie al progetto. Quando eseguiamo comandi come `npm install` o `npm run dev`, stiamo usando proprio npm per scaricare moduli, gestire script e avviare il server di sviluppo. In pratica, Node non serve solo per creare applicazioni backend, ma è uno strumento essenziale anche nello sviluppo front-end moderno, perché rende possibile l’utilizzo di build tool, bundler e framework come React in ambiente locale.
 
 {% include utility_box.html content=standardcontent tip=protips %}
 
