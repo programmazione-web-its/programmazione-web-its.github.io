@@ -30,6 +30,16 @@ Oltre a questo, Node.js include **npm (Node Package Manager)**, il gestore di pa
 
 {% include utility_box.html content=standardcontent tip=protips %}
 
+## Che cos'è Vite?
+
+Vite è un **build tool** e **dev server** moderno pensato per velocizzare lo sviluppo di applicazioni web. In pratica:
+
+- **Build tool**: trasforma il codice che scriviamo (JSX, TypeScript, moduli separati, ecc.) in file ottimizzati che il browser può eseguire. Anche durante lo sviluppo, Vite compila il nostro codice al volo mentre lo modifichiamo;
+- **Dev server**: fornisce un server locale dove testare l'applicazione in tempo reale. Quando modifichiamo un file, Vite lo ricarca automaticamente nel browser (Hot Module Replacement, HMR) senza perdere lo stato della pagina;
+- **Moderno e veloce**: Vite usa ESBuild come engine di compilazione, che è scritto in Go e molto più veloce dei bundler tradizionali come Webpack. Questo rende i tempi di avvio e di aggiornamento molto rapidi.
+
+Insomma, **Vite semplifica lo sviluppo** trasformando e servendo il codice in modo efficiente e permettendoci di vedere i cambiamenti quasi istantaneamente nel browser.
+
 ### <img class="img-logo" src="/assets/images/vite.svg" alt="Vite Logo" /> Creare un progetto React con **Vite**
 
 - Dopo aver installato Node.js, apriamo il terminale o da computer o da Visual Studio Code;
