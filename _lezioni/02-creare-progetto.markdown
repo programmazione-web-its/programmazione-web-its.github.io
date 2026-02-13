@@ -65,17 +65,6 @@ Vite è un **build tool** e **dev server** moderno pensato per velocizzare lo sv
 
 Insomma, **Vite semplifica lo sviluppo** trasformando e servendo il codice in modo efficiente e permettendoci di vedere i cambiamenti quasi istantaneamente nel browser.
 
-#### Che cos'è Create React App?
-
-Create React App (CRA) è un **tool ufficiale creato da Facebook (Meta)** per velocizzare la creazione di progetti React. In pratica:
-
-- **Zero-config starter**: CRA fornisce una configurazione predefinita e completa, senza bisogno di toccare file di configurazione complessi. È pensato per chi vuole iniziare subito senza dover imparare Webpack, Babel e altri tool di build.
-- **Build e dev server integrati**: Come Vite, CRA include un dev server con hot reload e un sistema di build ottimizzato. Quando eseguiamo `npm run dev` o `npm start`, il progetto parte automaticamente nel browser.
-- **Convention over configuration**: CRA enforce una struttura di cartelle e convenzioni specifiche, il che rende i progetti creati con questo tool molto simili tra loro e più facili da mantenere per team grandi.
-- **Maturità e stabilità**: CRA è stato uno dei primi tool di questo tipo ed è molto stabile, sebbene il progetto sia meno attivo oggi rispetto al passato.
-
-In breve: **Create React App è ideale per chi vuole partire velocemente** con una configurazione già pronta, senza preoccuparsi dei dettagli interni della build.
-
 ### <img class="img-logo" src="/assets/images/react-app.svg" alt="React App Logo" /> Creare un progetto React con **Create React App**
 
 - Dopo aver installato Node.js, apriamo il terminale o da computer o da Visual Studio Code;
@@ -93,6 +82,17 @@ In breve: **Create React App è ideale per chi vuole partire velocemente** con u
 - Apriamo il browser e andiamo all'indirizzo `http://localhost:3000/` (o quello indicato nel terminale) per vedere il progetto in esecuzione.
   <br/>
   <br/>
+
+#### Che cos'è, invece, Create React App?
+
+Create React App (CRA) è un **tool ufficiale creato da Facebook (Meta)** per velocizzare la creazione di progetti React. In pratica:
+
+- **Zero-config starter**: CRA fornisce una configurazione predefinita e completa, senza bisogno di toccare file di configurazione complessi. È pensato per chi vuole iniziare subito senza dover imparare Webpack, Babel e altri tool di build;
+- **Build e dev server integrati**: come Vite, CRA include un dev server con hot reload e un sistema di build ottimizzato. Quando eseguiamo `npm run dev` o `npm start`, il progetto parte automaticamente nel browser;
+- **Convention over configuration**: CRA stabilisce una struttura di cartelle e convenzioni specifiche, il che rende i progetti creati con questo tool molto simili tra loro e più facili da mantenere per team grandi.
+- **Maturità e stabilità**: CRA è stato uno dei primi tool di questo tipo ed è molto stabile, sebbene il progetto sia meno attivo oggi rispetto al passato.
+
+In breve: **Create React App è ideale per chi vuole partire velocemente** con una configurazione già pronta, senza preoccuparsi dei dettagli interni della build.
 
 ## 🤔 Quali sono le principali differenza tra Vite e CRA?
 
