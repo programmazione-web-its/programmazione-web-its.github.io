@@ -10,7 +10,7 @@ featured_image: /assets/images/03.webp
 
 # Cosa sono i componenti?
 
-Uno degli elementi fondamentali di React sono i **componenti**, ovvero sono dei blocchi potenzialmente riutilizzabili che permettono di costruire l'interfaccia utente in modo modulare e organizzato.
+Uno degli elementi fondamentali di React sono i **componenti**, ovvero dei blocchi potenzialmente riutilizzabili che permettono di costruire l'interfaccia utente in modo modulare e organizzato.
 
 Di fatto, le applicazioni React sono costruite **combinando componenti**, ognuno dei quali gestisce una parte specifica della UI.
 
@@ -23,13 +23,13 @@ Naturalmente, l'idea di immaginare le interfacce utente come una combinazione di
 
 ## Perché usare i componenti?
 
-L'idea alla base di un qualsiasi componente è quella di mettere insieme **struttura (HTML)**, **stile (CSS)** e **comportamento (JavaScript)** in un unico blocco riutilizzabile. Insieme questi tre elemento definiscono e controllano l'aspetto e il funzionamento del componente e, di conseguenza, una parte della UI.
-Questo ci consente di suddividere interfacce complesse in parti più piccole, i e potenzilamente riutilizzabili.
+L'idea alla base di un qualsiasi componente è quella di mettere insieme **struttura (HTML)**, **stile (CSS)** e **comportamento / interattività (JavaScript)** in un unico blocco riutilizzabile. Insieme questi tre elementi definiscono e controllano l'aspetto e il funzionamento del componente e, di conseguenza, una parte della UI.
+Questo ci consente di suddividere interfacce complesse in parti più piccole e potenzilamente riutilizzabili.
 
 <p class="img-group"><img src="" class="img-medium" src="/assets/images/component.webp" alt="Componenti React" />
 <img src="" class="img-medium" src="/assets/images/component-layout.webp" alt="Componenti React" /></p>
 
-Se non usassimo i compnenti dovremmo gestire file HTML, CSS e JavaScript separati, il che può diventare rapidamente complicato e difficile da mantenere, soprattutto in applicazioni complesse.
+Se non usassimo i componenti dovremmo gestire file HTML, CSS e JavaScript separati, il che può diventare rapidamente complicato e difficile da mantenere, soprattutto in applicazioni complesse.
 
 ### I tre motivi principali per usare i componenti:
 
@@ -39,7 +39,7 @@ Se non usassimo i compnenti dovremmo gestire file HTML, CSS e JavaScript separat
 
 ## 🧬 Anatomia di un componente
 
-Un componente React è una funzione JS che restituisce un pezzo di UI in JSX (una sintassi speciale che permette di scrivere HTML all'interno di JavaScript) e lo fa in maniera **dichiarativa**, ovvero specificando **cosa** deve essere mostrato, non **come**.
+Un componente React è una **funzione JS** che restituisce un pezzo di UI in JSX (una sintassi speciale che permette di scrivere HTML all'interno di JavaScript) e lo fa in maniera **dichiarativa**, ovvero specificando **cosa** deve essere mostrato, non **come**.
 
 L'estensione dei file che contengono i componenti è solitamente `.jsx` o ( `.js`).
 Ecco un esempio di un semplice componente React:
@@ -60,7 +60,7 @@ function MyComponent() {
 export default MyComponent // Esporta il componente per poterlo usare in altri file
 ```
 
-☝️ Di fatto, un componente React è semplicemente una funzione JavaScript che restituisce del JSX. Questa funziona, però, **deve seguire due regole:**
+☝️ Di fatto, un componente React è semplicemente una funzione JavaScript che restituisce del JSX. Questa funzione, però, **deve seguire due regole:**
 
 1. Il nome della funzione deve **iniziare** con la **lettera maiuscola** (<a href="https://www.freecodecamp.org/italian/news/convenzioni-di-nomenclatura-nella-programmazione-camel-snake-kebab-e-pascal-case-spiegati/" target="_blanke">PascalCase</a>);
 2. la funzoine deve **restituire** sempre un valore "renderizzabile" da React, come un elemento JSX, `null` o un booleano.
@@ -100,7 +100,7 @@ Da qui parte la costruzione di tutto l’albero dei componenti:
 
 Alla fine, React **raccoglie e combina** tutto questo codice JSX e lo **traduce in elementi HTML reali**, che vengono **inseriti nel DOM** e visualizzati sullo schermo.
 
-☝️ Nel DOM reale vedremo solo elementi nativi come `<div>`, `<header>`, `<h1>`, `<img>` ecc. e non i componenti React come `<App />` o `<Header />`, che esistono solo nel codice JavaScript. Questo è il motifvo per cui i nomi dei componenti React iniziano con la lettera maiuscola: per distinguerli dagli elementi HTML nativi, che invece iniziano con la lettera minuscola.
+☝️ Nel DOM reale vedremo solo elementi nativi come `<div>`, `<header>`, `<h1>`, `<img>` ecc. e non i componenti React come `<App />` o `<Header />`, che esistono solo nel codice JavaScript. Questo è il motivo per cui i nomi dei componenti React iniziano con la lettera maiuscola: per distinguerli dagli elementi HTML nativi, che invece iniziano con la lettera minuscola.
 
 Il risultato finale è un **albero dei componenti** (Component Tree): una **gerarchia di componenti** che restituiscono JSX, che React trasforma e inietta nel DOM reale.
 
