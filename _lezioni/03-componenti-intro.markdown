@@ -106,6 +106,35 @@ Il risultato finale è un **albero dei componenti** (Component Tree): una **gera
 
 <div style="background-color: black; padding: 2rem; margin: 2rem auto"><img class="img-full-width" src="/assets/images/render_tree.png" alt="Component Tree" /></div>
 
+## Che cos'è il DOM
+
+Il DOM (Document Object Model) è una rappresentazione ad albero della pagina HTML che il browser costruisce a partire dal codice HTML ricevuto dal server. Ogni elemento HTML (ad es. `<div>`, `<p>`, `<img>`) diventa un nodo nell'albero del DOM: il browser usa questa struttura per sapere cosa mostrare e come rispondere alle interazioni.
+
+Punti chiave sul DOM:
+
+- È un'API fornita dal browser: JavaScript può leggere e modificare il DOM (es. aggiungere elementi, cambiare attributi, ascoltare eventi);
+- ogni manipolazione del DOM reale può essere relativamente costosa in termini di prestazioni, specialmente se fatta ripetutamente;
+- il DOM è distinto dal codice HTML sorgente: il browser traduce l'HTML in una struttura dati (il DOM) che poi può essere attraversata e modificata via script.
+
+Ora che abbiamo chiaro cos'è il DOM reale, vediamo come React usa una rappresentazione virtuale per limitare le operazioni dirette sul DOM.
+
+## Il Virtual DOM in React
+
+Il Virtual DOM è una **rappresentazione leggera (in memoria)** del DOM reale: React mantiene una **copia virtuale** dell'albero dei componenti per **confrontarla** rapidamente con una nuova versione ogni volta che lo stato o le props cambiano.
+
+Come funziona:
+
+- React esegue la funzione del componente e costruisce un nuovo Virtual DOM (una struttura di oggetti che descrive gli elementi);
+- confronta il nuovo Virtual DOM con la versione precedente (operazione chiamata _diffing_);
+- calcola le differenze minime necessarie e **applica solo quelle** al DOM reale.
+
+Perché è utile:
+
+- Manipolare il DOM reale è relativamente costoso; riducendo il numero di operazioni effettive migliora le prestazioni percepite.
+- il processo di diffing permette a React di **aggiornare solo le parti necessarie** dell'interfaccia.
+
+In sintesi: il Virtual DOM è il meccanismo che permette a React di essere efficiente e dichiarativo, confrontando due rappresentazioni leggere dell'interfaccia e applicando al DOM reale solo le modifiche minime richieste.
+
 {% capture esercizio %}
 
 ## 💪 Aggiungiamo il nostro primo componente
