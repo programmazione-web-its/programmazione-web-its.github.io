@@ -24,23 +24,23 @@ const RANGE_END = 999 // Cambia qui (es: 20) - oppure molto grande se vuoi "fino
   const app = express()
   app.use(express.static('_site'))
   const server = app.listen(4000, () =>
-    console.log('🌍 Server attivo su http://localhost:4000')
+    console.log('🌍 Server attivo su http://localhost:4000'),
   )
 
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
 
-  async function convertDir(dir, startIndex = 0) {
+  async function convertDir(dir, startIndex = 0, endIndex = Infinity) {
     const files = fs.readdirSync(dir).filter((f) => f.endsWith('.html'))
     const pdfFiles = []
 
-    for (let i = startIndex; i < files.length; i++) {
+    for (let i = startIndex; i < files.length && i <= endIndex; i++) {
       const file = files[i]
       const filePath = path.join(dir, file)
       const relPath = path.relative(inputDir, filePath)
       const htmlUrl = `http://localhost:4000/lezioni/${relPath.replace(
         /\\/g,
-        '/'
+        '/',
       )}`
       const pdfPath = path.join(outputDir, relPath.replace(/\.html$/, '.pdf'))
       const pdfDir = path.dirname(pdfPath)
@@ -69,8 +69,8 @@ const RANGE_END = 999 // Cambia qui (es: 20) - oppure molto grande se vuoi "fino
     return pdfFiles
   }
 
-  // Per partire dal file 29:
-  const allPdfFiles = await convertDir(inputDir, 41) // Indice 28 = file 29 (0-based)
+  // Converti solo i file dall'indice 0 all'indice 8 (inclusi):
+  const allPdfFiles = await convertDir(inputDir, 0, 8) // 0-based, 0 = primo file, 8 = file 9
 
   await browser.close()
   server.close()
@@ -106,6 +106,6 @@ const RANGE_END = 999 // Cambia qui (es: 20) - oppure molto grande se vuoi "fino
   fs.writeFileSync(mergedPdfPath, mergedPdfBytes)
 
   console.log(
-    `🎉 PDF finale generato con pagine da ${RANGE_START} a ${RANGE_END}: ${mergedPdfPath}`
+    `🎉 PDF finale generato con pagine da ${RANGE_START} a ${RANGE_END}: ${mergedPdfPath}`,
   )
 })()
