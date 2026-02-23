@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#05. Immagini e attirbuti HTML dinamici'
+title: '#06. Immagini e attirbuti HTML dinamici'
 categories: lezioni
 excerpt: 'Come gestire il caricamento delle immagini e gli attributi HTML dinamici nei componenti React'
 featured_image: /assets/images/05.webp

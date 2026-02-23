@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#06. Stili e classi in React'
+title: '#07. Stili e classi in React'
 categories: lezioni
 excerpt: 'Come applicare stili CSS ai componenti React: inline style, className e classi dinamiche'
 featured_image: /assets/images/06.webp

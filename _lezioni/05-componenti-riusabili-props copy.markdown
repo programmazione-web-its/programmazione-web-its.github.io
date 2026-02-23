@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#07. Rendere i componenti riusabili: le props'
+title: '#05. Rendere i componenti riusabili: le props'
 categories: lezioni
 excerpt: Come rendere i componenti riusabili e flessibili con le props
 featured_image: /assets/images/05.webp
