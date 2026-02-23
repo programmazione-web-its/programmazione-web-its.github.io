@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#08. Gli eventi in React'
+title: '#09. Gli eventi in React'
 categories: lezioni
 excerpt: Come gestire gli eventi in React
 featured_image:

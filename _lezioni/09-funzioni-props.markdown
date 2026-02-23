@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#09. Passare funzioni come Props in React'
+title: '#10. Passare funzioni come Props in React'
 categories: lezioni
 excerpt: Come passare funzioni come Props in React
 featured_image:

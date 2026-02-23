@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#12. Il rendering condizionale in React'
+title: '#13. Il rendering condizionale in React'
 categories: lezioni
 excerpt: Come mostrare o nascondere elementi in base a determinate condizioni
 featured_image:

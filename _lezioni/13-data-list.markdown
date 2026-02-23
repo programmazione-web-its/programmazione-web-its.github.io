@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#13. Il rendering dinamico di liste in React'
+title: '#14. Il rendering dinamico di liste in React'
 categories: lezioni
 excerpt: Gestire e mostrare liste di elementi in React
 featured_image:

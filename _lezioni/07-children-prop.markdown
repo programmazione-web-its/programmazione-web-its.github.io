@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#07. Children: una Prop speciale'
+title: '#08. Children: una Prop speciale'
 categories: lezioni
 excerpt: L'utilizzo della proprietà children nella costruzione dei componenti
 featured_image:

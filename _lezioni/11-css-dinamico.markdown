@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#11. CSS e stili dinamici'
+title: '#12. CSS e stili dinamici'
 categories: lezioni
 excerpt: Come applicare stili dinamici in React
 featured_image:

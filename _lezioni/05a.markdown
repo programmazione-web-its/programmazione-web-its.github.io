@@ -1,0 +1,171 @@
+---
+layout: post
+title: '#06. Stili e classi in React'
+categories: lezioni
+excerpt: 'Come applicare stili CSS ai componenti React: inline style, className e classi dinamiche'
+featured_image: /assets/images/06.webp
+---
+
+Nella lezione precedente abbiamo visto come usare le parentesi graffe `{}` per rendere dinamici gli attributi HTML in JSX. In questa lezione applicaremo lo stesso concetto agli stili CSS, che in React si gestiscono in modo leggermente diverso rispetto all'HTML classico.
+
+## `className` al posto di `class`
+
+La prima differenza che notiamo è che in JSX **non si usa l'attributo `class`** per assegnare una classe CSS a un elemento, ma `className`:
+
+```jsx
+// HTML classico
+<div class="card">...</div>
+
+// JSX — React
+<div className="card">...</div>
+```
+
+Il motivo è tecnico: JSX viene trasformato in JavaScript, e `class` è una parola riservata in JS (si usa per definire le classi). Per evitare conflitti, React usa `className`.
+
+{% capture highlight %}
+☝️ Da ricordare:
+
+- In JSX si usa sempre **`className`** al posto di `class`;
+- è uno degli errori più comuni per chi arriva dall'HTML — se dimentichi, React ti avviserà con un warning nella console.
+
+```jsx
+<div class="card">...</div>    // ❌ Warning in console
+<div className="card">...</div> // ✅ Corretto
+```
+
+{% endcapture %}
+
+{% include highlight.html content=highlight %}
+
+## Inline style in React
+
+In HTML possiamo scrivere stili direttamente sull'elemento con l'attributo `style`:
+
+```jsx
+<p style='color: red; font-size: 16px;'>Testo</p>
+```
+
+In React la sintassi è diversa: `style` accetta un **oggetto JavaScript**, non una stringa. Questo significa che:
+
+- le proprietà CSS vanno scritte in **camelCase** invece che con il trattino (`backgroundColor` invece di `background-color`);
+- i valori vanno sempre tra virgolette come stringhe, oppure come numeri se si tratta di pixel.
+
+![stylecode](/assets/images/style-comp.png)
+
+👀 Nota le **doppie parentesi graffe** `{{ }}`: la prima coppia indica che stiamo inserendo un'espressione JavaScript in JSX, la seconda è l'oggetto JavaScript vero e proprio.
+
+È lo stesso risultato di scrivere:
+
+```jsx
+function MyComponent() {
+  const myStyle = { color: 'red', fontSize: '16px' }
+
+  return <p style={myStyle}>Testo</p>
+}
+```
+
+{% capture highlight %}
+☝️ Da ricordare:
+
+- `style` in JSX vuole un **oggetto JS**, non una stringa;
+- le proprietà CSS si scrivono in **camelCase**: `backgroundColor`, `borderRadius`, `fontWeight`, ecc.;
+- i valori numerici per i pixel possono essere scritti senza unità: `fontSize: 16` equivale a `fontSize: '16px'`.
+
+![stylecode-2](/assets/images/style-comp-2.png)
+{% endcapture %}
+
+{% include highlight.html content=highlight %}
+
+## Quando usare inline style e quando usare `className`
+
+Gli **inline style** tornano utili quando i valori degli stili sono **dinamici**, cioè cambiano in base a una variabile o a una prop:
+
+![stylecode-3](/assets/images/style-comp-3.png)
+
+Per tutto il resto è sempre preferibile usare **`className`** e gestire gli stili in un file CSS separato. Il CSS esterno è più facile da mantenere, permette di sfruttare le variabili in `:root`, i media query, e non appesantisce il JSX.
+
+---
+
+## Classi dinamiche con `className`
+
+Uno dei pattern più usati in React è quello di **aggiungere o rimuovere classi CSS in base allo stato o alle props** di un componente.
+
+Possiamo farlo costruendo una stringa di classi con un'espressione JavaScript:
+
+```jsx
+function Bottone({ testo, disabilitato }) {
+  return (
+    <button
+      className={`bottone ${disabilitato ? 'bottone--disabilitato' : ''}`}
+    >
+      {testo}
+    </button>
+  )
+}
+```
+
+Qui usiamo i **template literal** (le virgolette inverse `` ` ` ``) per costruire una stringa che include sempre la classe `bottone` e aggiunge `bottone--disabilitato` solo se la prop `disabilitato` è `true`.
+
+Vediamo un esempio più concreto: un componente `Semaforo` che cambia classe in base alla prop `colore`.
+
+```jsx
+// Semaforo.jsx
+export default function Semaforo({ colore }) {
+  return (
+    <div className='semaforo'>
+      <span className={`luce luce--${colore}`} />
+    </div>
+  )
+}
+```
+
+```css
+/* semaforo.css */
+.semaforo {
+  background-color: #222;
+  padding: 12px;
+  border-radius: 8px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.luce {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #444;
+  display: block;
+}
+
+.luce--rosso {
+  background-color: var(--color-error);
+}
+.luce--giallo {
+  background-color: var(--color-warning);
+}
+.luce--verde {
+  background-color: var(--color-success);
+}
+```
+
+```jsx
+// Uso in App.jsx
+<Semaforo colore="rosso" />
+<Semaforo colore="giallo" />
+<Semaforo colore="verde" />
+```
+
+In questo modo la prop `colore` costruisce il nome della classe CSS (`luce--rosso`, `luce--giallo`, `luce--verde`) e il CSS si occupa di applicare il colore giusto. Il componente rimane pulito e le classi sono gestite dal foglio di stile.
+
+---
+
+## Riepilogo
+
+| Metodo                                   | Quando usarlo                                         |
+| ---------------------------------------- | ----------------------------------------------------- |
+| `className="nome-classe"`                | Stili statici definiti nel CSS                        |
+| `className={\`classe \$\{variabile\}\`}` | Classi costruite dinamicamente                        |
+| `style={{ proprietà: valore }}`          | Valori di stile che dipendono da props o variabili JS |
+
+La regola pratica è semplice: **usa sempre il CSS esterno quando puoi, e inline style solo quando il valore deve essere calcolato dinamicamente in JavaScript**.

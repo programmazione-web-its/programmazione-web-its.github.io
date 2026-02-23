@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#10. Lo stato (State) in React con gli Hook'
+title: '#11. Lo stato (State) in React con gli Hook'
 categories: lezioni
 excerpt: Come gestire lo stato (state) in React con gli Hook
 featured_image:
