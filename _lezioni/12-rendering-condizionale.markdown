@@ -95,29 +95,9 @@ E poi nel JSX:
 
 {% capture esercizio %}
 
-## 📝 Un paio di esercizi di riscaldamento...
+## 📝 Qualche esercizio per mettere in pratica quanto appreso fin qui
 
-Recupera il codice del Counter e della Modale dagli esercizi precedenti:
-
-Per il counter prova a fornire un feedback visivo quando il contatore è
-
-- uguale a zero: "Comincia a contare!"
-- maggiore di zero: "Contatore positivo!"
-- minore di zero: "Contatore negativo!"
-- uguale a 10: "Hai raggiunto il massimo!"
-
-Per la modale:
-
-- la modale deve comparire al click del pulsante "Apri Modale"
-- la modale deve scomparire al click del pulsante "Chiudi Modale"
-- E se volessi usare lo stesso pulsante per aprire e chiudere la modale? Come potrei fare?
-
-Mettiamo tutto insieme:
-
-- Rimuoviamo il pulsante "Apri Modale"
-- Quando il contatore è uguale a 10, mostriamo la modale con il messaggio "Hai raggiunto il massimo!"
-- Solo quando la modale è aperta, mostriamo il pulsante "Chiudi Modale"
-- Alla chiusura della modale, il contatore deve tornare a zero.
+[Vai alla sezione dedicata nella FAD](https://fad.its-ictpiemonte.it/course/view.php?id=2480#section-6)
 
 {% endcapture %}
 
