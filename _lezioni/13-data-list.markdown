@@ -67,6 +67,16 @@ In questo esempio, `tasks.map()` itera su ogni elemento dell'array `tasks` e res
 
 {% capture esercizio %}
 
+## 📝 Qualche esercizio per mettere in pratica quanto appreso fin qui
+
+[Vai alla sezione dedicata nella FAD](https://fad.its-ictpiemonte.it/course/view.php?id=2480#section-6)
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}
+
+{% capture esercizio %}
+
 ## 💪 ...ora siamo pronti per lavorare sulla nostra app!
 
 - Recuperiamo il codice della todo list
