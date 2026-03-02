@@ -92,5 +92,3 @@ E poi nel JSX:
   renderContent()
 }
 ```
-
-
