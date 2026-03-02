@@ -36,8 +36,8 @@ layout: default
   <aside>
     <div class="progetti">
       <h2 class="post-list-heading">{{ page.list_title | default: "Progetti" }}</h2>
-    
-       <ul class="project-list">
+
+      <ul class="project-list">
         <!-- <li><a href="https://github.com/programmazione-web-its/wander-notes/tree/main"><h3>🌍 WanderNotes - Next.js</h3></a></li>
         <li><a href="https://codesandbox.io/p/sandbox/keen-mendeleev-7hhfyf"><h3>🔥 Mini Router (No librerie)</h3></a></li> -->
         {%- for post in site.progetti -%}
@@ -52,21 +52,24 @@ layout: default
           </a>
         </li>
         {%- endfor -%}
-      </ul> 
+      </ul>
 
     </div>
     <div class="esercizi">
       <h2 class="post-list-heading">Esercizi</h2>
-     
-    <ul class="exercise-list">
+
+      <ul class="exercise-list">
 
         <li>
           <a href="https://github.com/programmazione-web-its/esercizi/tree/main" target="_blank">
             Gestire lo stato e gli eventi
           </a>
-
+          <a href="https://fad.its-ictpiemonte.it/course/view.php?id=2480#section-6" target="_blank">
+            Usare le props</a>
+          <a href="https://fad.its-ictpiemonte.it/course/view.php?id=2480#section-10" target="_blank">
+            Rendering codizionale, props forwarding, stato</a>
         </li>
-<!--
+        <!--
         <li>
           <a href="https://github.com/programmazione-web-its/coffe-supply" target="_blank">
             Coffee supply ☕️
