@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#14. Il props forwarding in React'
+title: '#15. Il props forwarding in React'
 categories: lezioni
 excerpt: Come passare props a componenti figli in React
 featured_image:
@@ -14,14 +14,16 @@ function Container({ children }) {
 }
 ```
 
-Cosa succederebbe se volessimo aggiungere un `id` o una `className` al `div`?
+Cosa succederebbe se volessimo aggiungere un `id` o uno stile inline al `div`?
+{% raw %}
 
 ```jsx
-<Container id='main' className='bg-gray-100' style={{ borderRadius: '10px' }}>
+<Container id='main' style={{ border: '1px solid red' }}>
   <TodoList tasks={dummyTasks} />
 </Container>
 ```
 
+{% endraw %}
 Se guardiamo il codice dal browser notiamo che questi attributi vengono **ignorati** perché il componente `Container` non li inoltra al `div` interno, né li riceve.
 
 Per evitare di perdere props, possiamo usare il **props forwarding**: una tecnica che consiste nel **passare tutte le props ricevute** da un componente a un altro componente o elemento figlio. Il modo per farlo è usando
@@ -45,16 +47,15 @@ Cosa abbiamo fatto?
 - `{...props}` "spalma" tutte le props raccolte sull'elemento `div`.
 
 Ora, se scriviamo
+{% raw %}
 
 ```jsx
-<Container
-  id='main'
-  className='bg-gray-100'
-  style={{ border: '1px solid red' }}
->
+<Container id='main' style={{ border: '1px solid red' }}>
   <TodoList tasks={dummyTasks} />
 </Container>
 ```
+
+{% endraw %}
 
 React le applicherà direttamente al `div` interno senza doverle dichiarare manualmente ogni volta
 
@@ -69,8 +70,7 @@ React le applicherà direttamente al `div` interno senza doverle dichiarare manu
 
 ## 💪 Applichiamo il props forwarding alla nostra app
 
-- Modifichiamo il componente `Button` per permettere di passare props extra (es. `onClick`, `class`, `id`, ecc.);
-- Facciamo la sessa cosa per il componente `Container`;
+- Modifichiamo il componente componente `Container` per permettere di passare props extra (es. `id`, data-attributes, ecc.);
 
 {% endcapture %}
 

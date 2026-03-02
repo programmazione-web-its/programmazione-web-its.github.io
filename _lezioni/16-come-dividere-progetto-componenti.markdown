@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#16. Come dividere un progetto in componenti'
+title: '#17. Come dividere un progetto in componenti'
 categories: lezioni
 excerpt: Approcci e strategie per suddividere un progetto React in componenti riutilizzabili
 featured_image:

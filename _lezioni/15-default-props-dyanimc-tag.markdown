@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#15. Le default props e i tag dinamici in React'
+title: '#16. Le default props e i tag dinamici in React'
 categories: lezioni
 excerpt: Rendere i componenti più flessibili con le default props e i tag dinamici
 featured_image:

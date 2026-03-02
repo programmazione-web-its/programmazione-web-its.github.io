@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#11. Lo stato (State) in React con gli Hook'
+title: '#12. Lo stato (State) in React con gli Hook'
 categories: lezioni
 excerpt: Come gestire lo stato (state) in React con gli Hook
 featured_image:
@@ -56,10 +56,20 @@ La convenzione è chiamare il primo elemento con il nome del dato (es. `value`) 
 ☝️ In sintesi: lo state è il modo in cui React gestisce dati che cambiano nel tempo e che devono riflettersi sull’interfaccia. È il concetto fondamentale che rende possibile costruire interfacce dinamiche e interattive.
 {% endcapture %}
 {% include highlight.html content=highlight  %}
-
 {% capture esercizio %}
 
-## 💪 Mostriamo le task completate e quelle ancora da fare con la gestione dello State
+## 💪 Mostriamo le task filtrate per tipo
+
+A questo punto possiamo mostrare in modo condizionale le task completate e quelle ancora da fare, usando lo state per tenere traccia di quale filtro è attivo.
+Ragioniamo insieme su come potremmo fare
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}
+
+<!-- {% capture esercizio %} -->
+
+<!-- ## 💪 Mostriamo le task completate e quelle ancora da fare con la gestione dello State
 
 - Creiamo un nuovo pulsante "Aggiungi Task" usando il componente `Button` creato nella lezione precedente;
 - Facciamo in modo che, quando viene cliccato, aggiunga una nuova task alla lista;
@@ -79,4 +89,4 @@ La convenzione è chiamare il primo elemento con il nome del dato (es. `value`) 
 
 {% endcapture %}
 
-{% include exercise_box.html content=esercizio %}
+{% include exercise_box.html content=esercizio %} -->

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#12. CSS e stili dinamici'
+title: '#13. CSS e stili dinamici'
 categories: lezioni
 excerpt: Come applicare stili dinamici in React
 featured_image:
@@ -64,3 +64,13 @@ function TabMenu() {
 ```
 
 In questo modo, quando l’utente clicca su una tab, lo stato `activeTab` viene aggiornato e la UI si aggiorna di conseguenza, evidenziando la tab selezionata.
+
+{% capture esercizio %}
+
+## 💪 Stilizziamo gli elementi della lista che sono completati
+
+- Aggiungiamo una classe `done` agli elementi della lista che sono completati
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}

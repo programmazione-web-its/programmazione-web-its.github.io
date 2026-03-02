@@ -60,12 +60,13 @@ In questo modo, quando il pulsante viene cliccato, la funzione anonima viene ese
 
 ## 💪 Aggiungiamo un parametro alle funzioni
 
-- Riprendiamo le nostre funzioni `showCompleted` e `showPending` create nella lezione sugli eventi;
+- Riprendiamo le nostre funzioni `showCompleted` e `showPending` create poco fa;
 - Modifichiamole in modo che accettino un parametro `type` (stringa);
 - Passiamo un messaggio diverso a seconda del bottone cliccato. Ad esempio:
   - `showCompleted('completed')` per il bottone delle task completate;
   - `showPending('pending')` per il bottone delle task non completate.
 - Stampiamo in console il messaggio ricevuto come parametro;
+- E adesso: se volessimo usare una sola funzione per gestire entrambi i bottoni come potremmo fare?
 
 {% endcapture %}
 

@@ -65,7 +65,7 @@ In questo esempio, `tasks.map()` itera su ogni elemento dell'array `tasks` e res
 - ogni volta, riceviamo un singolo elemento e possiamo restituire il JSX che vogliamo visualizzare per quell’elemento;
 - il risultato finale è un nuovo array di elementi JSX che React può renderizzare.
 
-{% capture esercizio %}
+<!-- {% capture esercizio %}
 
 ## 💪 ...ora siamo pronti per lavorare sulla nostra app!
 
@@ -77,4 +77,4 @@ In questo esempio, `tasks.map()` itera su ogni elemento dell'array `tasks` e res
 
 {% endcapture %}
 
-{% include exercise_box.html content=esercizio %}
+{% include exercise_box.html content=esercizio %} -->

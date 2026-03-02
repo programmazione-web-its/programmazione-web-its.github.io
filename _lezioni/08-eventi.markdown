@@ -44,9 +44,10 @@ export default function Button({ children }) {
 
 ## 💪 Aggiungiamo un evento al Button
 
-- Creiamo due nuovi bottoni:
+- In `App.jsx` aggiungiamo due pulsanti:
   - Uno per mostrare le task completate;
   - Uno per mostrare le task non completate;
+- Insieriamo i pulsanti in un div con classe `filter`;
 - Aggiungiamo un evento `onClick` ad entrambi i bottoni;
 - Creiamo due funzioni `showCompleted` e `showPending` che stampino un messaggio in console quando i bottoni vengono cliccati.
 

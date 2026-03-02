@@ -53,11 +53,9 @@ Perché ci permette di creare **contenitori riutilizzabili** che non sanno in an
 
 ## 💪 Integriamo children nella To Do List
 
-- Crea un nuovo componente `Button`;
-- fai in modo che sia utilizzabile con `<Button>Testo</Button>`;
-- inseriscilo nel componente `TooList.jsx`.
-
-- Adesso crea un nuovo componente `Container`, che servira per gestire il layout;
+- Crea un nuovo componente `Container`, che servirà per gestire il layout;
+- al container diamo una classe `container`;
+- il componente container deve accettare qualsiasi contenuto al suo interno, quindi usiamo la prop `children` per renderizzarlo;
 - incapsula tutto il conenuto dell'app all'interno di `Container`.
 
 {% endcapture %}

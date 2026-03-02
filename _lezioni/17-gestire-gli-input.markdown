@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#17. Gestire gli input in React'
+title: '#18. Gestire gli input in React'
 categories: lezioni
 excerpt: Come gestire gli input e i form in React, con `onChange` e  `useState`
 featured_image:
