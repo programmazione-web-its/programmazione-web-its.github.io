@@ -93,12 +93,4 @@ E poi nel JSX:
 }
 ```
 
-{% capture esercizio %}
 
-## 📝 Qualche esercizio per mettere in pratica quanto appreso fin qui
-
-[Vai alla sezione dedicata nella FAD](https://fad.its-ictpiemonte.it/course/view.php?id=2480#section-6)
-
-{% endcapture %}
-
-{% include exercise_box.html content=esercizio %}
