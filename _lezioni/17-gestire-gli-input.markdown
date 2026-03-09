@@ -70,82 +70,82 @@ La funzione `handleChange` viene chiamata ogni volta che l’utente modifica il 
 
 Questa tecnica è chiamata **two-way binding** perché:
 
-- Da input a stato: prendiamo il valore inseirto dall'utente;
-- da stato a input: aggioriniamo l'input con il valore dello stato.
+- Da input a stato: prendiamo il valore inserito dall'utente;
+- da stato a input: aggiorniamo l'input con il valore dello stato.
   In questo modo, lo stato e l'input sono sempre sincronizzati.
 
 #### I vantaggi di questo approccio
 
 1. Possiamo usare il valore dell'input in altre parti del componente, ad esempio per mostrare un messaggio di benvenuto:
 
-```jsx
-import { useState } from 'react'
-export default function TextInput() {
-  const [name, setName] = useState('Pluto') // Stato per il nome
-  function handleChange(event) {
-    setName(event.target.value) // Aggiorna lo stato con il valore dell'input
-  }
-  return (
-    <>
-      <input type='text' value={name} onChange={handleChange} />
-      <p>Ciao, {name}!</p> {/* Usa il valore dello stato */}
-    </>
-  )
-}
-```
+   ```jsx
+   import { useState } from 'react'
+   export default function TextInput() {
+     const [name, setName] = useState('Pluto') // Stato per il nome
+     function handleChange(event) {
+       setName(event.target.value) // Aggiorna lo stato con il valore dell'input
+     }
+     return (
+       <>
+         <input type='text' value={name} onChange={handleChange} />
+         <p>Ciao, {name}!</p> {/* Usa il valore dello stato */}
+       </>
+     )
+   }
+   ```
 
 2. Possiamo applicare validazioni o trasformazioni al valore inserito in tempo reale, ad esempio convertendo tutto in maiuscolo:
 
-```jsx
-import { useState } from 'react'
-export default function TextInput() {
-  const [name, setName] = useState('Pluto')
-  function handleChange(event) {
-    setName(event.target.value.toUpperCase()) // Converte in maiuscolo
-  }
-  return (
-    <>
-      <input type='text' value={name} onChange={handleChange} />
-      <p>Ciao, {name}!</p>
-    </>
-  )
-}
-```
+   ```jsx
+   import { useState } from 'react'
+   export default function TextInput() {
+     const [name, setName] = useState('Pluto')
+     function handleChange(event) {
+       setName(event.target.value.toUpperCase()) // Converte in maiuscolo
+     }
+     return (
+       <>
+         <input type='text' value={name} onChange={handleChange} />
+         <p>Ciao, {name}!</p>
+       </>
+     )
+   }
+   ```
 
 3. È scalabile: funziona per più input diversi nello stesso componente usando più `useState`.
 
-```jsx
-import { useState } from 'react'
-export default function UserForm() {
-  const [firstName, setFirstName] = useState('Donald')
-  const [lastName, setLastName] = useState('Duck')
-  function handleFirstNameChange(event) {
-    setFirstName(event.target.value)
-  }
-  function handleLastNameChange(event) {
-    setLastName(event.target.value)
-  }
-  return (
-    <>
-      <input
-        type='text'
-        value={firstName}
-        onChange={handleFirstNameChange}
-        placeholder='Nome'
-      />
-      <input
-        type='text'
-        value={lastName}
-        onChange={handleLastNameChange}
-        placeholder='Cognome'
-      />
-      <p>
-        Ciao, {firstName} {lastName}!
-      </p>
-    </>
-  )
-}
-```
+   ```jsx
+   import { useState } from 'react'
+   export default function UserForm() {
+     const [firstName, setFirstName] = useState('Donald')
+     const [lastName, setLastName] = useState('Duck')
+     function handleFirstNameChange(event) {
+       setFirstName(event.target.value)
+     }
+     function handleLastNameChange(event) {
+       setLastName(event.target.value)
+     }
+     return (
+       <>
+         <input
+           type='text'
+           value={firstName}
+           onChange={handleFirstNameChange}
+           placeholder='Nome'
+         />
+         <input
+           type='text'
+           value={lastName}
+           onChange={handleLastNameChange}
+           placeholder='Cognome'
+         />
+         <p>
+           Ciao, {firstName} {lastName}!
+         </p>
+       </>
+     )
+   }
+   ```
 
 {% capture highlight %}
 

@@ -31,7 +31,7 @@ items.push(newItem)
 setItems(items)
 ```
 
-##
+## Come aggiornare elementi specifici in array di oggetti
 
 Quando vogliamo aggiornare un elemento specifico dobbiamo passare le informazioni necessarie agli **event handler**: possiamo farlo usando funzioni anonime da passare ai vari `onClick`, `onChange`, ecc.
 
