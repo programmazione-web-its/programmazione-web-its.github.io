@@ -40,7 +40,7 @@ Ogni componente dovrebbe essere il più possibile flessibile e configurabile tra
 
 - Valori di default aiutano a semplificare l'uso del componente senza dover specificare ogni volta tutte le props;
 - le props consentono di personalizzare il comportamento e l'aspetto del componente senza modificarne il codice interno;
-- il **props forwarding** è utile per passare props extra a componenti figli o elementi HTML senza doverle dichiarare tutte manualmente.
+- il **lo spreading delle props** è utile per passare props extra a componenti figli o elementi HTML senza doverle dichiarare tutte manualmente.
 
 ### Fase 5: organizzare i file e le cartelle.
 
