@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#20. Derived State: creare valori calcolati a partire dallo stato'
+title: '#21. Derived State: creare valori calcolati a partire dallo stato'
 categories: lezioni
 excerpt: Come creare valori calcolati a partire dallo stato in React
 featured_image:

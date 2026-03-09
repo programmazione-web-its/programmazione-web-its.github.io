@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#19. Elevazione dello stato'
+title: '#20. Elevazione dello stato'
 categories: lezioni
 excerpt: Cos'è l'elevazione dello stato e quando usarla
 featured_image:
@@ -62,7 +62,7 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const allItems = ['Apple', 'Banana', 'Orange', 'Mango', 'Grapes']
   const filteredItems = allItems.filter((item) =>
-    item.toLowerCase().includes(searchTerm.toLowerCase())
+    item.toLowerCase().includes(searchTerm.toLowerCase()),
   )
 
   return (
@@ -119,8 +119,8 @@ export default function App() {
   function handleComplete(taskId) {
     setTasks((prevTasks) =>
       prevTasks.map((task) =>
-        task.id === taskId ? { ...task, completed: true } : task
-      )
+        task.id === taskId ? { ...task, completed: true } : task,
+      ),
     )
   }
 

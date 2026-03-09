@@ -1,8 +1,8 @@
 ---
 layout: post
-title: '#15. Il props forwarding in React'
+title: '#15.Rest/spread props in React'
 categories: lezioni
-excerpt: Come passare props a componenti figli in React
+excerpt: Come evitare di perdere props in un componente React.
 featured_image:
 ---
 
@@ -26,7 +26,7 @@ Cosa succederebbe se volessimo aggiungere un `id` o uno stile inline al `div`?
 {% endraw %}
 Se guardiamo il codice dal browser notiamo che questi attributi vengono **ignorati** perché il componente `Container` non li inoltra al `div` interno, né li riceve.
 
-Per evitare di perdere props, possiamo usare il **props forwarding**: una tecnica che consiste nel **passare tutte le props ricevute** da un componente a un altro componente o elemento figlio. Il modo per farlo è usando
+Per evitare di perdere props, possiamo usare il **lo spreading delle props**: una tecnica che consiste nel **passare tutte le props ricevute** da un componente a un altro componente o elemento figlio. Il modo per farlo è usando
 
 - il **rest operator (`...`)** che ci permette di "raccogliere" tutte le props extra;
 - e lo **spread operator (`...`)** che ci permette di "spalmare" queste props su un elemento JSX.
@@ -60,7 +60,7 @@ Ora, se scriviamo
 React le applicherà direttamente al `div` interno senza doverle dichiarare manualmente ogni volta
 
 {% capture highlight %}
-☝️ Il props forwarding è particolarmente utile quando si creano componenti riutilizzabili che devono essere flessibili e adattabili a diversi contesti. Permette di mantenere il codice pulito e riduce la necessità di modificare i componenti ogni volta che si vogliono aggiungere nuove props.
+☝️ Lo spreading delle props è particolarmente utile quando si creano componenti riutilizzabili che devono essere flessibili e adattabili a diversi contesti. Permette di mantenere il codice pulito e riduce la necessità di modificare i componenti ogni volta che si vogliono aggiungere nuove props.
 
 ☝️ Possiamo chiamare l’oggetto che raccoglie le props con qualsiasi nome, ma per convenzione — e per rendere il codice più leggibile ad altri sviluppatori — si utilizza quasi sempre il nome _props_.
 {% endcapture %}
@@ -68,7 +68,7 @@ React le applicherà direttamente al `div` interno senza doverle dichiarare manu
 
 {% capture esercizio %}
 
-## 💪 Applichiamo il props forwarding alla nostra app
+## 💪 Applichiamo lo spreading alla nostra app
 
 - Modifichiamo il componente componente `Container` per permettere di passare props extra (es. `id`, data-attributes, ecc.);
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#18. Immutabilità dello stato e best practice'
+title: '#19. Immutabilità dello stato e best practice'
 categories: lezioni
 excerpt: Best practice e consigli per gestire lo stato in React
 featured_image:
