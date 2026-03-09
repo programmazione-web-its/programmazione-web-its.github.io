@@ -34,7 +34,7 @@ Non esiste una regola fissa, ma in generale:
 
 ☝️ **Regola pratica**: se un pezzo di UI può essere usato da solo o in contesti diversi allora è meglio creare un componente separato.
 
-### Fase 4: gestore le props e la "configurabilità" del componente.
+### Fase 4: gestire le props e la "configurabilità" del componente.
 
 Ogni componente dovrebbe essere il più possibile flessibile e configurabile tramite props:
 
