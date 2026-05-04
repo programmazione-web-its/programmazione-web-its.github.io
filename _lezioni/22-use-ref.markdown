@@ -220,3 +220,31 @@ function App() {
   return <MyInput ref={ref} />
 }
 ```
+
+---
+
+{% capture esercizio %}
+
+## 💪 Focus automatico e scroll
+
+Usa `useRef` per manipolare elementi DOM:
+
+- Crea un componente `SearchBar` con un campo `<input>` e un pulsante "Cerca";
+- Usa `useRef` per ottenere il riferimento all'input e, quando si clicca il pulsante, porta il focus sull'input con `.focus()`;
+- Aggiungi un secondo pulsante "Vai ai risultati" che fa scorrere la pagina fino a una `<div>` in fondo al componente usando `.scrollIntoView({ behavior: 'smooth' })`;
+- Quella `<div>` deve avere il suo riferimento tramite un secondo `useRef`.
+  <br/><br/>
+
+## 💪 Form non controllato con useRef
+
+Crea un form di registrazione che legge i valori degli input solo al momento del submit, senza `onChange` e senza `useState` per ogni campo:
+
+- Crea un componente `RegisterForm` con tre campi: nome, email e password;
+- Usa un `useRef` per ciascun campo per accedere al valore solo quando l'utente clicca "Registrati";
+- Al submit, mostra in console un oggetto `{ nome, email, password }` con i valori letti tramite `.current.value`;
+- Aggiungi un pulsante "Reset" che svuota tutti i campi usando i ref (`.current.value = ''`);
+- Rifletti: in quale caso preferiresti `useState` + `onChange` a questo approccio?
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}

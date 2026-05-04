@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "#27. L'useEffect e gli effetti 'laterali'"
+title: "#26. L'useEffect e gli effetti 'laterali'"
 categories: lezioni
 excerpt: Gestire gli side effects e le dipendenze  in React con gli hook
 featured_image:
@@ -238,3 +238,53 @@ useEffect(() => {
   document.body.className = theme
 }, [theme])
 ```
+
+---
+
+{% capture esercizio %}
+
+## 💪 Titolo della pagina dinamico
+
+Usa `useEffect` per aggiornare il titolo della scheda del browser in base allo stato del componente:
+
+- Crea un componente `Counter` con uno stato `count` che parte da `0`;
+- Aggiungi due pulsanti: "Incrementa" e "Decrementa";
+- Usa `useEffect` per aggiornare `document.title` ogni volta che `count` cambia, mostrando ad esempio `"Contatore: 3"`;
+- Fai in modo che l'effetto si esegua solo quando `count` cambia, non ad ogni render;
+- Bonus: al primo montaggio del componente, imposta il titolo a `"Contatore: 0"`.
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}
+
+{% capture esercizio2 %}
+
+## 💪 Countdown con cleanup
+
+Crea un componente `Countdown` che mostra un conto alla rovescia e pulisce il timer quando viene smontato:
+
+- Lo stato iniziale è `secondi` = `10`;
+- Usa `useEffect` con `setInterval` per decrementare `secondi` di 1 ogni secondo;
+- Quando `secondi` raggiunge `0`, mostra "Tempo scaduto!" al posto del numero;
+- Implementa la **cleanup function** per cancellare l'interval con `clearInterval` quando il componente si smonta;
+- Aggiungi un pulsante "Nascondi countdown" nel componente padre per smontare/rimontare il `Countdown` e verificare che il cleanup funzioni correttamente (nessun "Tick!" residuo in console).
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio2 %}
+
+{% capture esercizio3 %}
+
+## 💪 Tracciare la posizione del mouse
+
+Crea un componente `MouseTracker` che mostra le coordinate del mouse in tempo reale usando un event listener con cleanup:
+
+- Crea uno stato `position` con `{ x: 0, y: 0 }`;
+- Usa `useEffect` per aggiungere un listener sull'evento `mousemove` della `window` che aggiorna `position` con le coordinate correnti (`event.clientX`, `event.clientY`);
+- Mostra le coordinate aggiornate nell'interfaccia: `"X: 120, Y: 340"`;
+- Implementa la **cleanup function** per rimuovere il listener con `removeEventListener` quando il componente si smonta;
+- Aggiungi un pulsante per nascondere il componente e verifica in console che il listener venga rimosso correttamente.
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio3 %}

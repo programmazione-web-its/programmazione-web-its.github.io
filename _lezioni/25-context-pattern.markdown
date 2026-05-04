@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#26. Pattern del Provider Component'
+title: '#25. Pattern del Provider Component'
 categories: lezioni
 excerpt: Isolare la logica del context per mantenere il codice pulito e manutenibile
 featured_image:
@@ -177,3 +177,54 @@ export default App
 {% endcapture %}
 
 {% include comparative_table.html col1=col1 col2=col2  %}
+
+---
+
+{% capture esercizio %}
+
+## 💪 Refactoring: da App.jsx a un Provider Component
+
+Prendi l'esercizio del `CartContext` della lezione precedente dove tutta la logica è in `App.jsx` e refactorizzalo seguendo il pattern del Provider Component:
+
+- Crea la cartella `src/providers/` e al suo interno il file `CartContextProvider.jsx`;
+- Sposta in `CartContextProvider` tutto lo stato (`useState`), le funzioni (`addItemToCart`, `removeItemFromCart`) e la costruzione del `contextValue`;
+- Il componente deve accettare `children` come prop e restituire `<CartContext.Provider value={contextValue}>{children}</CartContext.Provider>`;
+- In `App.jsx` rimuovi tutta la logica spostata e usa semplicemente `<CartContextProvider>` come wrapper attorno ai componenti figli;
+- Verifica che il comportamento dell'app rimanga identico a prima.
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}
+
+{% capture esercizio2 %}
+
+## 💪 ThemeContextProvider
+
+Crea un `ThemeContextProvider` che gestisca il tema dell'applicazione:
+
+- Crea il file `src/providers/ThemeContextProvider.jsx`;
+- Gestisci al suo interno lo stato `theme` con `useState('light')` e la funzione `toggleTheme`;
+- Esporta dal file sia il context (`ThemeContext`) che il provider (`ThemeContextProvider`);
+- In `App.jsx`, usa `ThemeContextProvider` come wrapper esterno, così che tutti i componenti abbiano accesso al tema;
+- Crea un componente `ThemeToggle` che consuma `ThemeContext` con `useContext` e mostra il tema corrente con un pulsante per cambiarlo.
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio2 %}
+
+{% capture esercizio3 %}
+
+## 💪 Più provider annidati
+
+Combina due provider nella stessa applicazione:
+
+- Usa il `CartContextProvider` e il `ThemeContextProvider` degli esercizi precedenti;
+- In `App.jsx`, annida i due provider in modo che entrambi avvolgano i componenti figli (l'ordine non è rilevante, ma sceglilo in modo logico);
+- Crea un componente `Dashboard` che consuma entrambi i context:
+  - dal `ThemeContext` legge il tema corrente e applica una classe CSS di conseguenza (`light` o `dark`);
+  - dal `CartContext` legge il numero di articoli nel carrello e lo mostra;
+- Rifletti: cosa succederebbe se uno dei provider non fosse presente nel tree?
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio3 %}

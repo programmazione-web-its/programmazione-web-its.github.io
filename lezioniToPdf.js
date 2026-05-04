@@ -70,7 +70,7 @@ const RANGE_END = 999 // Cambia qui (es: 20) - oppure molto grande se vuoi "fino
   }
 
   // Converti solo i file dall'indice 0 all'indice 8 (inclusi):
-  const allPdfFiles = await convertDir(inputDir, 0, 8) // 0-based, 0 = primo file, 8 = file 9
+  const allPdfFiles = await convertDir(inputDir, 0, 23) // 0-based, 0 = primo file, 8 = file 9
 
   await browser.close()
   server.close()

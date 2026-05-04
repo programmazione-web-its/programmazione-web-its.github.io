@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#28. Usare async/await con useEffect in React'
+title: '#27. Usare async/await con useEffect in React'
 categories: lezioni
 excerpt: Gestire operazioni asincrone in React con async/await e useEffect
 featured_image:
@@ -94,3 +94,63 @@ useEffect(() => {
 ```
 
 In questo caso, `fetchData` dipende da `userId`, che potrebbe essere una variabile di stato o una prop. Se `userId` cambia, dobbiamo assicurarci che `fetchData` venga chiamata con il valore aggiornato. Per questo motivo, è meglio definire `fetchData` all'interno di `useEffect` per garantire che abbia accesso al valore più recente di `userId`.
+
+---
+
+{% capture esercizio %}
+
+## 💪 Da `.then()` ad `async/await`
+
+Converti una chiamata API scritta con `.then()` in `async/await`:
+
+Parti da questo codice con `.then()`:
+
+```jsx
+useEffect(() => {
+  fetch('https://jsonplaceholder.typicode.com/posts/1')
+    .then((res) => res.json())
+    .then((data) => setPost(data))
+    .catch((err) => console.error(err))
+}, [])
+```
+
+- Crea un componente `PostDetail` con uno stato `post` inizializzato a `null`;
+- Riscrivi l'`useEffect` usando `async/await`: definisci una funzione asincrona `fetchPost` all'interno dell'effetto e chiamala subito dopo;
+- Gestisci eventuali errori con `try/catch`;
+- Mostra il titolo e il corpo del post nell'interfaccia, oppure "Caricamento..." se `post` è ancora `null`.
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}
+
+{% capture esercizio2 %}
+
+## 💪 Lista di utenti con stato di caricamento
+
+Fetcha una lista di utenti da un'API pubblica e mostra uno stato di caricamento:
+
+- Crea un componente `UserList` con due stati: `users` (array vuoto) e `isLoading` (booleano, inizialmente `true`);
+- Usa `useEffect` con una funzione asincrona interna per fetchare `https://jsonplaceholder.typicode.com/users`;
+- Mentre la richiesta è in corso, mostra il testo "Caricamento utenti...";
+- Una volta ricevuti i dati, imposta `isLoading` a `false` e mostra la lista con nome e email di ciascun utente;
+- Gestisci gli errori con `try/catch` e, in caso di errore, mostra un messaggio "Errore nel caricamento".
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio2 %}
+
+{% capture esercizio3 %}
+
+## 💪 Fetch che dipende da una selezione dell'utente
+
+Crea un componente che fetcha dati diversi in base alla scelta dell'utente, con `async/await` e dipendenze nell'array di `useEffect`:
+
+- Crea uno stato `selectedId` con `useState(1)` e uno stato `post` con `useState(null)`;
+- Mostra una serie di pulsanti (da 1 a 5) che aggiornano `selectedId` al click;
+- Usa `useEffect` con `selectedId` nell'array delle dipendenze per fetchare il post corrispondente da `https://jsonplaceholder.typicode.com/posts/[selectedId]`;
+- Definisci la funzione `async` all'interno di `useEffect` (perché dipende da `selectedId`);
+- Ogni volta che l'utente cambia selezione, il post si aggiorna automaticamente; mostra titolo e corpo del post corrente.
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio3 %}

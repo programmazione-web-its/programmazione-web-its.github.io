@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#25. Context API'
+title: '#24. Context API'
 categories: lezioni
 excerpt: Cos'è la Context API e come si usa
 featured_image:
@@ -225,3 +225,54 @@ const CartContext = createContext({
   {% endcapture %}
 
 {% include highlight.html content=highlight789  %}
+
+---
+
+{% capture esercizio %}
+
+## 💪 ThemeContext: luce o buio?
+
+Crea un `ThemeContext` che gestisca il tema dell’applicazione (chiaro o scuro):
+
+- Crea il file `src/store/theme-context.jsx` con `createContext()` e un valore iniziale `{ theme: ‘light’ }`;
+- In `App.jsx`, crea uno stato `theme` con `useState(‘light’)` e collega il context allo state;
+- Avvolgi i componenti figli con `ThemeContext.Provider`;
+- Crea un componente `ThemeToggle` che legge il tema corrente con `useContext` e mostra un pulsante per alternare tra `’light’` e `’dark’`;
+- Aggiungi la funzione `toggleTheme` al valore del context in modo che `ThemeToggle` possa aggiornarla.
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}
+
+{% capture esercizio2 %}
+
+## 💪 UserContext: l’utente autenticato
+
+Crea un `UserContext` che simuli i dati di un utente autenticato:
+
+- Crea il file `src/store/user-context.jsx` con `createContext()` e un valore iniziale `{ user: null, login: () => {}, logout: () => {} }`;
+- In `App.jsx`, crea uno stato `user` con `useState(null)` e definisci le funzioni `login(nome)` (imposta un oggetto `{ name: nome }`) e `logout` (imposta `null`);
+- Collega stato e funzioni al context tramite `UserContext.Provider`;
+- Crea un componente `UserPanel` che:
+  - Se `user` è `null`, mostra un pulsante "Accedi" che chiama `login(‘Mario’)`;
+  - Se `user` è presente, mostra "Benvenuto, [nome]" e un pulsante "Esci" che chiama `logout`.
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio2 %}
+
+{% capture esercizio3 %}
+
+## 💪 CartContext: aggiungere prodotti al carrello
+
+Estendi il `CartContext` dell’esempio in lezione:
+
+- Aggiungi al valore iniziale del context anche una funzione `removeItemFromCart: () => {}`;
+- In `App.jsx`, implementa la funzione `removeItemFromCart(id)` che rimuove dall’array `items` l’elemento con quell’`id`;
+- Includi la funzione nel valore del context;
+- Crea un componente `CartItem` che riceve come props `id` e `title` e mostra un pulsante "Rimuovi" che, usando `useContext`, chiama `removeItemFromCart` con l’`id` del prodotto;
+- Mostra la lista degli articoli nel carrello con il totale degli elementi.
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio3 %}

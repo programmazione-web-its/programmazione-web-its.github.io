@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#24. Prop Drilling'
+title: '#23. Prop Drilling'
 categories: lezioni
 excerpt: Risolvere il problema del prop drilling centralizzando lo stato con la Context API
 featured_image:
@@ -39,3 +39,22 @@ Questo inoltro delle proprietà può diventare difficile da gestire in applicazi
 
 - possiamo gestire la composizione dei componenti in modo da limitare il passaggio di props;
 - oppure possiamo gestire lo stato condiviso in modo più **pulito e centralizzato** con la **Context API**.
+
+---
+
+{% capture esercizio %}
+
+## 💪 Simulare il prop drilling su tre livelli
+
+Costruisci una piccola gerarchia di componenti che riproduce il problema del prop drilling:
+
+- Aggiungi al componente `App` uno stato `user` (oggetto con `name` e `role`, es. `{ name: 'Anna', role: 'admin' }`);
+- `App` renderizza `Dashboard`, che renderizza `Sidebar`, che renderizza `UserBadge`;
+- Solo `UserBadge` usa davvero i dati dell'utente per mostrare nome e ruolo;
+- Fai in modo che i dati passino da `App` a `UserBadge` tramite props;
+
+👉 Qui lo starter del progetto https://codesandbox.io/p/sandbox/heuristic-snow-zxfrqp
+
+{% endcapture %}
+
+{% include exercise_box.html content=esercizio %}
