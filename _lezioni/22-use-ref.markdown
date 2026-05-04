@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "#22. L'hook useRef"
+title: "#23. L'hook useRef"
 categories: lezioni
 excerpt: Manipolare riferimenti a elementi DOM e valori mutabili con l'hook useRef.
 featured_image:

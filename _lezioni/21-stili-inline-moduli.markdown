@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#21. Gestire gli stili in React: Inline Styles e CSS Modules'
+title: '#22. Gestire gli stili in React: Inline Styles e CSS Modules'
 categories: lezioni
 excerpt: Diversi approcci per gestire gli stili in React.
 featured_image:
