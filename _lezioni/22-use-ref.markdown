@@ -178,6 +178,8 @@ In sostanza, `useRef` è la versione React del `querySelector`: dobbiamo usarlo 
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
 
+ Qui link https://codesandbox.io/p/sandbox/useref-cronometri-qq3qz8  
+
 ### useRef non serve solo per accedere al DOM:
 <iframe src="https://codesandbox.io/embed/qq3qz8?view=editor+%2B+preview&module=%2Fsrc%2FApp.js"
      style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
