@@ -178,7 +178,8 @@ In sostanza, `useRef` è la versione React del `querySelector`: dobbiamo usarlo 
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
 
- Qui link https://codesandbox.io/p/sandbox/useref-cronometri-qq3qz8  
+Qui link [https://codesandbox.io/p/sandbox/funny-ellis-gd4hf5?from-embed=](https://codesandbox.io/p/sandbox/funny-ellis-gd4hf5?from-embed=)
+
 
 ### useRef non serve solo per accedere al DOM:
 <iframe src="https://codesandbox.io/embed/qq3qz8?view=editor+%2B+preview&module=%2Fsrc%2FApp.js"
@@ -187,6 +188,8 @@ In sostanza, `useRef` è la versione React del `querySelector`: dobbiamo usarlo 
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
+
+Qui link https://codesandbox.io/p/sandbox/useref-cronometri-qq3qz8  
 ## Forward di Refs ai componenti personalizzati
 
 È possibile passare le Refs ai nostri componenti custom tramite le props:
