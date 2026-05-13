@@ -261,18 +261,4 @@ Crea un `UserContext` che simuli i dati di un utente autenticato:
 
 {% include exercise_box.html content=esercizio2 %}
 
-{% capture esercizio3 %}
 
-## 💪 CartContext: aggiungere prodotti al carrello
-
-Estendi il `CartContext` dell’esempio in lezione:
-
-- Aggiungi al valore iniziale del context anche una funzione `removeItemFromCart: () => {}`;
-- In `App.jsx`, implementa la funzione `removeItemFromCart(id)` che rimuove dall’array `items` l’elemento con quell’`id`;
-- Includi la funzione nel valore del context;
-- Crea un componente `CartItem` che riceve come props `id` e `title` e mostra un pulsante "Rimuovi" che, usando `useContext`, chiama `removeItemFromCart` con l’`id` del prodotto;
-- Mostra la lista degli articoli nel carrello con il totale degli elementi.
-
-{% endcapture %}
-
-{% include exercise_box.html content=esercizio3 %}
