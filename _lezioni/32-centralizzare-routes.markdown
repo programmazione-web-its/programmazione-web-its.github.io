@@ -46,10 +46,10 @@ import { createBrowserRouter } from 'react-router-dom'
  const router = createBrowserRouter([
     {
       path: '/',
-      Component: Layout, // route layout principale ** element: <Layout />
+      element: <Layout />,
       children: [
-        { index: true, Component Homepage }, // equivalente a path: '/'
-        { path: 'about', Component: About },
+        { index: true, element: <Homepage /> }, // equivalente a path: '/'
+        { path: 'about', element: <About /> },
       ],
     },
   ])

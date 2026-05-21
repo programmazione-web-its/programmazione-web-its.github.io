@@ -25,8 +25,7 @@ export default function App()  {
   return <div></div>
 }
 const router = createBrowserRouter([{
-  path: '/products/:productId', Component: ProductDetails
-}]
+      path: '/products/:productId', element: <ProductDetails />
 ```
 
 In questo esempio, `:productId` è un parametro dinamico che rappresenta l'ID del prodotto.

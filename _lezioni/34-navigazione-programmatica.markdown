@@ -74,7 +74,7 @@ La funzione `navigate` accetta un secondo argomento opzionale, un oggetto di opz
 - `replace: true` - sostituisce la voce corrente nella cronologia invece di aggiungerne una nuova. Utile per evitare che l’utente torni alla pagina precedente con il pulsante Indietro.
 - `state: any` - permette di passare uno stato aggiuntivo alla nuova route;
 
-👉 Per la lista completa di opzioni leggi la [documentazione ufficiale](https://reactrouter.com/api/hooks/useNavigate)
+👉 Per la lista completa di opzioni leggi la [documentazione ufficiale](https://reactrouter.com/6.30.3/hooks/use-navigatee)
 
 Esempio con opzioni:
 

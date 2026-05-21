@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#31. React Router per la gestione delle SPA'
+title: '#31. React Router 6 per la gestione delle SPA'
 categories: lezioni
 excerpt: Gestire la navigazione in una Single Page Application con React Router
 featured_image:
@@ -8,22 +8,12 @@ featured_image:
 
 {% capture standardcontent %}
 
-## Come installare React Router
+## Come installare React Router 6
 
 Per installare React Router nella tua applicazione React esegui uno dei seguenti il comando nel terminale all'interno della directory del tuo progetto:
 
-React Router >= 7
-
 ```bash
-npm i react-router
-```
-
-oppure
-
-React Router < 7
-
-```bash
-npm i react-router-dom
+npm i react-router-dom@6
 ```
 
 ## Configurare React Router
@@ -55,9 +45,7 @@ Possiamo configurare le rotte importando `createBrowserRouter` all'interno del n
 ```jsx
 // App.jsx
 
-import { createBrowserRouter } from 'react-router' // React Router >= 7
-
-import { createBrowserRouter } from 'react-router-dom' // React Router < 7
+import { createBrowserRouter } from 'react-router-dom'
 
 import Homepage from './pages/Homepage'
 
@@ -65,7 +53,7 @@ export default function App() {
   return <div></div>
 }
 
-const router = createBrowserRouter([{ path: '/', Component: Homepage }])
+const router = createBrowserRouter([{ path: '/', element: <Homepage /> }])
 ```
 
 L'oggetto `router` contiene la definizione delle rotte della nostra applicazione. Oltre alla proprietà `path`, che definisce l'URL associato alla rotta, possiamo specificare anche altre proprietà come:
@@ -80,10 +68,10 @@ Possiamo nidificare le rotte in modo più complesso, ad esempio aggiungendo una 
 createBrowserRouter([
   {
     path: '/dashboard',
-    Component: Dashboard,
+    element: <Dashboard />,
     children: [
-      { index: true, Component: Home },
-      { path: 'settings', Component: Settings },
+      { index: true, element: <Home /> },
+      { path: 'settings', element: <Settings /> },
     ],
   },
 ])
@@ -98,10 +86,7 @@ Una volta definite le rotte, dobbiamo inizializzare il router all'interno del no
 ```jsx
 // App.jsx
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom' // React Router < 7
-
-import { createBrowserRouter } from 'react-router' // React Router >= 7
-import { RouterProvider } from 'react-router/dom' // React Router >= 7
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Homepage from './pages/Homepage'
 
@@ -109,7 +94,7 @@ export default function App() {
   return <RouterProvider router={router} />
 }
 
-const router = createBrowserRouter([{ path: '/', Component: Homepage }])
+const router = createBrowserRouter([{ path: '/', element: <Homepage /> }])
 ```
 
 ### 3. Creare i componenti di navigazione
@@ -117,8 +102,7 @@ const router = createBrowserRouter([{ path: '/', Component: Homepage }])
 Per permettere agli utenti di navigare tra le diverse pagine della nostra applicazione, possiamo utilizzare il componente `Link` di React Router:
 
 ```jsx
-import { Link } from 'react-router-dom' // React Router < 7
-import { Link } from 'react-router' // React Router >= 7
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
