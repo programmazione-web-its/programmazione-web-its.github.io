@@ -28,10 +28,7 @@ function NotFound() {
 Successivamente, dobbiamo configurare React Router per utilizzare questa pagina 404 quando l'utente tenta di accedere a una route inesistente. Per fare questo, aggiungiamo una route wildcard (`*`) alla nostra configurazione delle rotte:
 
 ```jsx
-import { createBrowserRouter, RouterProvider } from 'react-router-dom' // React Router < 7
-
-import { createBrowserRouter } from 'react-router' // React Router >= 7
-import { RouterProvider } from 'react-router/dom' // React Router >= 7
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import NotFound from './NotFound' // Importa il componente NotFound
 import Home from './Home'
