@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '💡 Rimettiamo in ordine le idee prima di ricominciare'
+title: '💡 Rimettiamo in ordine le idee prima di proseguire'
 categories: lezioni
 excerpt: Ripasso generale di quanto visto fin qui, prima di ripartire con nuovi argomenti
 featured_image:
@@ -382,7 +382,7 @@ Potete usare i seguenti endpoint per testare la fetch:
 - Lista dei film top rated: `https://api.themoviedb.org/3/movie/top_rated`;
 - Lista delle serie top rated: `https://api.themoviedb.org/3/tv/top_rated`.
 
-Per recuperare la locandina del film, l'API restituisce solo il nome del file (es. `poster_path: "/path/to/poster.jpg"`): per ottenere l'URL completo bisogna concatenarlo a un prefisso, ad esempio `https://image.tmdb.org/t/p/w500` per avere un'immagine larga 500px. Esempio completo di un url:   
+Per recuperare la locandina del film, l'API restituisce solo il nome del file (es. `poster_path: "/path/to/poster.jpg"`): per ottenere l'URL completo bisogna concatenarlo a un prefisso, ad esempio `https://image.tmdb.org/t/p/w500` per avere un'immagine larga 500px. Esempio completo di un url:
 
 {% endcapture %}
 {% include exercise_box.html content=esercizio7 %}
