@@ -398,7 +398,7 @@ Trasforma MovieHub in una vera SPA con più pagine:
 - Route da implementare, tutte figlie di `Layout`:
   - `/` → `HomePage`, con la lista dei film e la barra di ricerca già realizzate;
   - `/favorites` → `FavoritesPage`, che mostra solo i film preferiti (letti dal context);
-  - `/movies/:movieId` → `MovieDetailPage`, pagina di dettaglio del singolo film, che legge l'`id` con `useParams()` e recupera il film corrispondente dal context;
+  - `/movies/:movieId` → `MovieDetailPage`, pagina di dettaglio del singolo film, che legge l'`id` con `useParams()` e recupera il film corrispondente da API (`https://api.themoviedb.org/3/movie/\${movieId}`) o dal context (se già presente - opzionale); ;
   - `*` → `NotFoundPage`, con un messaggio e un link per tornare alla home;
 - In `MovieCard`, sostituisci il click sulla card con un `` <Link to={`/movies/${movie.id}`}> `` per andare al dettaglio;
 - In `MovieDetailPage`, aggiungi un pulsante "← Torna indietro" che usa `useNavigate()` per tornare alla pagina precedente;
