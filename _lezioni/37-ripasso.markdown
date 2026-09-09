@@ -393,7 +393,7 @@ Per recuperare la locandina del film, l'API restituisce solo il nome del file (e
 
 Trasforma MovieHub in una vera SPA con più pagine:
 
-- Installa `react-router-dom` e configura `createBrowserRouter` con `RouterProvider`;
+- Installa `react-router-dom` (v6) e configura `createBrowserRouter` con `RouterProvider`;
 - Crea un componente `Layout` con una barra di navigazione (link a "Home" e "Preferiti") e un `<Outlet />`, da usare come route "contenitore" per tutte le pagine;
 - Route da implementare, tutte figlie di `Layout`:
   - `/` → `HomePage`, con la lista dei film e la barra di ricerca già realizzate;
