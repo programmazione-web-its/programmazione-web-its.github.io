@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '#41 Librerie in React: Axios'
+title: '#41. Librerie in React: Axios'
 categories: lezioni
 excerpt: Usare la libreria Axios per comunicare con le API in modo più semplice e ordinato rispetto a fetch.
 featured_image:
