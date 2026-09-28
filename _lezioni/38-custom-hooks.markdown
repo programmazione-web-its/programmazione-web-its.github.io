@@ -173,7 +173,7 @@ Crea un custom hook `useCounter` che gestisca un contatore configurabile:
 
 Crea un custom hook `useLocalStorage` che funzioni **come `useState`**, ma che salvi automaticamente il valore in `localStorage`:
 
-- L'hook riceve una `id` e un `initialValue` e restituisce un array `[value, setValue]`, esattamente come `useState`;
+- L'hook riceve una `key` e un `initialValue` e restituisce un array `[value, setValue]`, esattamente come `useState`;
 - Al primo render, se in `localStorage` esiste già un valore per quella chiave, deve essere usato come stato iniziale (ricorda `JSON.parse`); altrimenti si usa `initialValue`. Suggerimento: passa una **funzione** a `useState` per leggere `localStorage` solo al primo render;
 - Con `useEffect`, salva il valore in `localStorage` (con `JSON.stringify`) ogni volta che cambia;
 - Usa l'hook per creare un componente `NotesApp` in cui l'utente può aggiungere note testuali tramite un form controllato ed eliminarle: ricaricando la pagina, le note devono essere ancora presenti;
