@@ -381,35 +381,6 @@ Non è necessario usarli da subito, ma è bene sapere che esistono: in molti pro
 {% endcapture %}
 {% include highlight.html content=highlight %}
 
-## Annullare una richiesta
-
-Nella lezione sui custom hooks abbiamo visto che, se l'utente cambia pagina o selezione velocemente, una risposta "vecchia" potrebbe arrivare in ritardo e sovrascrivere quella nuova. Con Axios possiamo **annullare** la richiesta nella funzione di cleanup di `useEffect`, usando un `AbortController`, esattamente come si fa con `fetch`:
-
-```jsx
-useEffect(() => {
-  const controller = new AbortController()
-
-  const getPosts = async () => {
-    try {
-      const { data } = await axios.get(
-        'https://jsonplaceholder.typicode.com/posts',
-        {
-          params: { userId },
-          signal: controller.signal,
-        },
-      )
-      setPosts(data)
-    } catch (error) {
-      if (axios.isCancel(error)) return // richiesta annullata da noi: non è un vero errore
-      setError('Impossibile caricare i post')
-    }
-  }
-
-  getPosts()
-
-  return () => controller.abort() // annulla la richiesta se userId cambia o il componente viene smontato
-}, [userId])
-```
 
 ## Quindi, meglio `fetch` o Axios?
 
