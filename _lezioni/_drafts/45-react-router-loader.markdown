@@ -42,7 +42,7 @@ React Router carica **i dati in anticipo** e poi renderizza il componente quando
 
 ## Accedere i dati del loader
 
-In un loader non possiamo restituire qualsiasi tipo di valore (un oggetto, una stringa, un booleano, una Promise, etc). Qualunque sia questo valore, React Router lo renderà **disponibile al componente** associate alla route tramite **l'hook `useLoaderData()`**
+In un loader possiamo restituire qualsiasi tipo di valore (un oggetto, una stringa, un booleano, una Promise, etc). Qualunque sia questo valore, React Router lo renderà **disponibile al componente** associate alla route tramite **l'hook `useLoaderData()`**
 
 ```jsx
 
